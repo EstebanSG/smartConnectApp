@@ -17,7 +17,7 @@ def inicio_view(request):
     context = {
         'conv': obj
     }
-    return render(request, "inicio.html", context)
+    return render(request, "index.html", context)
 
 def login_view(request, *args, **kwargs):
     return render(request, "login.html", {})

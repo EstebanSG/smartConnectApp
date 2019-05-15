@@ -130,7 +130,7 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = 'inicio'
+LOGIN_REDIRECT_URL = 'home'
 LOGIN_EXEMPT_URLS = (
 
 )
