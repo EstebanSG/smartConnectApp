@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>Convocatorias</title>
+
+</head>
+<body>
+<!--Navbar -->
+
+<nav class="navbar  navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand text-light" href="#">
+  	<img src="img/HorizontalPrimario Blanco.png" width="100" height="30" alt="">
+  	SmartConnect
+  </a>
+  <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link text-warning" href="#">Perfil <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Inicio</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Mis Convocatorias</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-light" href="#">Cerrar Sesion</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<!--Body-->
+<div class="container">
+	<div class="row">
+		<div class="figure col-md-12">
+			<div style="height: 250px; width: 250px">
+				<img class="figure-img img-fluid bg-dark rounded" src="img/fotoPerfil.jpeg" alt="Responsive image">
+			</div>
+		</div>
+  </div>
+  <br>
+<br>
+<br>
+  <div class="row">
+    <div class="col-md-12">
+      <input type="file" id="idfile" hidden="hidden">
+      <button class="btn btn-primary" type="button" id="idbtnfile">Elegir Archivo</button>
+      <span id="textbtnfile">no file chosen, yet.</span>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<div class="container">
+  <form method="POST">
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<label>Nombre:</label>
+			<input type="text" name="nombre">
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label>Apellidos:</label>
+			<input type="text" name="apeliidos">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<label>Matricula:</label>
+			<input type="text" name="matricula">
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label>Carrera:</label>
+			<input type="text" name="carrera">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<label>Correo:</label>
+			<input type="text" name="correo">
+		</div>
+	</div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <small class="form-text">Si desea cambiar su contraseña ingrese a este link <a href="password/">Cambiar contraseña</a></small>
+    </div>
+  </div>
+  <br>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<button type="submit" class="btn btn-primary" formaction='perfil.html'>Cancelar</button>
+		</div>
+	</div>
+  </form>
+		
+</div>
+
+
+
+
+<!--Footer-->
+<footer style="margin-top: 400px;" class="py-5 bg-dark">
+      <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <p>
+                        	<i class="fa fa-phone"></i>
+                        	<span style="color: white;"> Tel&eacute;fono: </span>
+                        	<a style="color: #FF7514">777-123-45-67</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <p>
+                        	<i class="fa fa-envelope-o"></i>
+                        	<span style="color: white;"> Correo: </span>
+                        	<a style="color: #FF7514" href="#">correoOficial@tec.mx</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+      <div class="container">
+        <p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
+      </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  const readFileBtn = document.getElementById("idfile");
+  const btnFile = document.getElementById("idbtnfile");
+  const txtbtnfile = document.getElementById("textbtnfile");
+  
+
+  btnFile.addEventListener("click", function(){
+     readFileBtn.click(); 
+
+  })
+
+  readFileBtn.addEventListener("change", function(){
+    if (readFileBtn.value){
+      txtbtnfile.innerHTML = readFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+    } else{
+      txtbtnfile.innerHTML = "no file chosen, yet.";
+    }
+  })
+
+
+
+
+</script>
+</body>
+</html>
