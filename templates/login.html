@@ -40,38 +40,64 @@
 <br>
 
 <!-- Body -->
-
-
 <div class="container">	
-	<div class="row justify-content-md-center">
-		<div class="col-md">
-			<div class="" style="width: 800px;">
-			<img style=" max-width: 30%; height: auto;" src="img/LogoTec.png" class="img-fluid" alt="Responsive image">
+		<div class="row justify-content-md-center">
+			<div class="col-md">
+				<div class="" style="width: 800px;">
+				<img style=" max-width: 30%; height: auto;" src="img/LogoTec.png" class="img-fluid" alt="Responsive image">
+			</div>
+			</div>
 		</div>
+		<div class="row justify-content-md-center">
+			<form>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+					<small id="emailHelp" class="form-text text-muted">Este correo no será compartido con nadie</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				</div>
+				<button type="submit" class="btn btn-primary">Login</button>
+			</form>
+		</div>
+		<br>
+		<div class="row justify-content-md-center">
+			<p class="loginhere">
+				Ya tienes cuenta?<a href="/login" class="loginhere-link"> Inicia sesión aquí</a>
+			</p>
 		</div>
 	</div>
-	<div class="row justify-content-md-center">
-		<form>
-		  <div class="form-group">
-		  	<label for="exampleInputEmail1">Email address</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-		    <small id="emailHelp" class="form-text text-muted">Este correo no será compartido con nadie</small>
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputPassword1">Password</label>
-		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-		  </div>
-		  <button type="submit" class="btn btn-primary">Login</button>
-		</form>
-	</div>
-	<br>
-	<div class="row justify-content-md-center">
-		<p class="loginhere">
-			Ya tienes cuenta?<a href="/login" class="loginhere-link"> Inicia sesión aquí</a>
-		</p>
-	</div>
-</div>
 
+
+<form method="post" class="login100-form validate-form">
+
+		
+		<span class="login100-form-title p-b-34">
+			Inicio de sesión
+		</span>
+		{% csrf_token %}
+		{{ form }}
+		
+		
+
+		<div class="container-login100-form-btn">
+
+			<input class="btn btn-primary" type="submit" value="ingresar">
+
+		</div>
+
+
+
+		<div class="w-full text-center">
+				¿ Aún no tienes cuenta ? 
+			<a href="/register" class="txt3">
+				Registrate
+			</a>
+		</div>
+
+	</form>
 
 <!--Footer-->
 <footer style="margin-top: 200px;" class="py-5 bg-dark">

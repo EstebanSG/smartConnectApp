@@ -16,8 +16,33 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.convocatorias import views
+from django.conf.urls import url, include
+from django.contrib import admin
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
+
+
+from django.urls import reverse_lazy
+from django.contrib.auth.views import (
+    
+    LoginView,
+    LogoutView,
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordChangeView,
+    PasswordChangeDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView
+)
+app_name = "convocatorias"
 urlpatterns = [
     path('', views.index_view, name='home'),
     path('admin/', admin.site.urls),
-]
+    path('inicio/', views.inicio_view, name='inicio'),
+    path('login', LoginView.as_view(template_name='login.html'), name='login'),
+    path('^convsaved/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
