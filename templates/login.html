@@ -1,3 +1,5 @@
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +16,8 @@
 <!--Navbar -->
 
 <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand text-light" href="#">
-  	<img src="img/HorizontalPrimario Blanco.png" width="100" height="30" alt="">
+  <a class="navbar-brand text-light" href="/">
+  	<img src="{% static 'img/HorizontalPrimario Blanco.png' %}" width="100" height="30" alt="">
   	SmartConnect
   </a>
   <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,13 +27,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link text-warning" href="#">Iniciar Sesion <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-warning" href="/login">Iniciar Sesion <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Inicio</a>
+        <a class="nav-link text-light" href="/">Inicio</a>
         </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Crear Cuenta</a>
+        <a class="nav-link text-light" href="/registro">Crear Cuenta</a>
       </li>
     </ul>
   </div>
@@ -44,21 +46,21 @@
 		<div class="row justify-content-md-center">
 			<div class="col-md">
 				<div class="" style="width: 800px;">
-				<img style=" max-width: 30%; height: auto;" src="img/LogoTec.png" class="img-fluid" alt="Responsive image">
+				<img style=" max-width: 30%; height: auto;" src="{% static 'img/LogoTec.png' %}" class="img-fluid" alt="Responsive image">
 			</div>
 			</div>
 		</div>
 		<div class="row justify-content-md-center">
 			<form>
 					{% csrf_token %}
-					{{ form }}
-				<button type="submit" class="btn btn-primary">Login</button>
+					{{ form|crispy }}
+				<button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Login</button>
 			</form>
 		</div>
 		<br>
 		<div class="row justify-content-md-center">
 			<p class="loginhere">
-					¿Aún no tienes cuenta? <a href="/" class="loginhere-link"> Registrate aquí</a>
+					¿Aún no tienes cuenta? <a href="/registro" class="loginhere-link"> Registrate aquí</a>
 			</p>
 		</div>
 	</div>
@@ -71,14 +73,14 @@
                         <p>
                         	<i class="fa fa-phone"></i>
                         	<span style="color: white;"> Tel&eacute;fono: </span>
-                        	<a class="text-warning">777-123-45-67</a>
+                        	<a class="text-warning">Tel.(+52)777 362 0893</a>
                         </p>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <p>
                         	<i class="fa fa-envelope-o"></i>
                         	<span style="color: white;"> Correo: </span>
-                        	<a class="text-warning" href="#">correoOficial@tec.mx</a>
+                        	<a class="text-warning" href="#">mdimayuga@itesm.mx</a>
                         </p>
                     </div>
                 </div>

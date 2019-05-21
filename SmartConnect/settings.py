@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.convocatorias',
-    #'apps.SmartConnect',
+    'crispy_forms',
     #'daterangefilter',
-    #'apps.smartlink',
     'import_export',
     'multiselectfield',
 ]
