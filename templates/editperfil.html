@@ -1,3 +1,5 @@
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +16,8 @@
 <!--Navbar -->
 
 <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand text-light" href="#">
-  	<img src="img/HorizontalPrimario Blanco.png" width="100" height="30" alt="">
+  <a class="navbar-brand text-light" href="/">
+  	<img src="{% static 'img/HorizontalPrimario Blanco.png' %}" width="100" height="30" alt="">
   	SmartConnect
   </a>
   <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,19 +28,19 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item active">
-        <a class="nav-link text-warning" href="#">Perfil <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-warning" href="/perfil">Perfil <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Inicio</a>
+        <a class="nav-link text-light" href="/">Inicio</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Mis Convocatorias</a>
+        <a class="nav-link text-light" href="/misconvocatorias">Mis Convocatorias</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">Cerrar Sesion</a>
+        <a class="nav-link text-light" href="/logaout">Cerrar Sesion</a>
       </li>
 
     </ul>
@@ -51,7 +53,7 @@
 	<div class="row">
 		<div class="figure col-md-12">
 			<div style="height: 250px; width: 250px">
-				<img class="figure-img img-fluid bg-dark rounded" src="img/fotoPerfil.jpeg" alt="Responsive image">
+				<img class="figure-img img-fluid bg-dark rounded" src="{% static 'img/fotoPerfil.jpeg'%}" alt="Responsive image">
 			</div>
 		</div>
   </div>
@@ -61,7 +63,7 @@
   <div class="row">
     <div class="col-md-12">
       <input type="file" id="idfile" hidden="hidden">
-      <button class="btn btn-primary" type="button" id="idbtnfile">Elegir Archivo</button>
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="button" id="idbtnfile">Elegir Archivo</button>
       <span id="textbtnfile">no file chosen, yet.</span>
     </div>
   </div>
@@ -99,16 +101,16 @@
 	</div>
   <div class="row">
     <div class="col-sm-12 col-md-12">
-      <small class="form-text">Si desea cambiar su contraseña ingrese a este link <a href="password/">Cambiar contraseña</a></small>
+      <small class="form-text">Si desea cambiar su contraseña ingrese a este link <a class="text-warning" href="password/">Cambiar contraseña</a></small>
     </div>
   </div>
   <br>
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
-			<button type="submit" class="btn btn-primary">Guardar Cambios</button>
+			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Guardar Cambios</button>
 		</div>
 		<div class="col-sm-12 col-md-4">
-			<button type="submit" class="btn btn-primary" formaction='perfil.html'>Cancelar</button>
+			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0" formaction='perfil.html'>Cancelar</button>
 		</div>
 	</div>
   </form>
@@ -119,31 +121,32 @@
 
 
 <!--Footer-->
-<footer style="margin-top: 400px;" class="py-5 bg-dark">
-      <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <p>
-                        	<i class="fa fa-phone"></i>
-                        	<span style="color: white;"> Tel&eacute;fono: </span>
-                        	<a style="color: #FF7514">777-123-45-67</a>
-                        </p>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <p>
-                        	<i class="fa fa-envelope-o"></i>
-                        	<span style="color: white;"> Correo: </span>
-                        	<a style="color: #FF7514" href="#">correoOficial@tec.mx</a>
-                        </p>
-                    </div>
+<footer style="margin-top: 600px;" class="py-5 bg-dark">
+  <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <p>
+                      <i class="fa fa-phone"></i>
+                      <span style="color: white;"> Tel&eacute;fono: </span>
+                      <a class="text-warning">Tel.(+52)777 362 0893</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <p>
+                      <i class="fa fa-envelope-o"></i>
+                      <span style="color: white;"> Correo: </span>
+                      <a class="text-warning" href="#">mdimayuga@itesm.mx</a>
+                    </p>
                 </div>
             </div>
-            <br>
-            <br>
-      <div class="container">
-        <p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
-      </div>
-    </footer>
+        </div>
+        <br>
+        <br>
+  <div class="container">
+    <p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
+  </div>
+</footer>
+<!--/Footer-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

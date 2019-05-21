@@ -34,6 +34,10 @@ def editarperfil_view(request, *args, **kwargs):
 def logaout_view(request, *args, **kwargs):
     return render(request, "index.html", {})
 
+def eliminarConvocatoriaCliente(request, pk=None):
+    return render(request, 'historial.html')
+
+
 def agregarConvocatoriaCliente(request, pk=None):
     if pk:
         convocatoria = Convocatorias.objects.get(pk=pk)
@@ -62,4 +66,29 @@ def agregarConvocatoriaCliente(request, pk=None):
         'link': obj.link
     }
 '''
+
+''' print("-----------------------ESTA COSITA-----------------------------")
+    print(request.user.clientes.eventos)
+    print(evento.id)
+    print("-----------------------ESTA COSITA-----------------------------")
+    if pk:
+        evento = Eventos.objects.get(pk=pk)
+    print("-----------------------ESTA COSITA-----------------------------")
+    print(request.user.alumnos.convocatorias)
+    print(convocatorias.id)
+    print("-----------------------ESTA COSITA-----------------------------")
+        #user = User.objects.get(pku=pku)  
+        #context = {'eventosss':eventosss}
+    request.user.alumnos.convocatorias.remove(convocatoria.id)
+    print("-----------------------ESTA COSITA-----------------------------")
+    print(request.user.alumnos.convocatorias)
+    print(convocatorias.id)
+    print("-----------------------ESTA COSITA-----------------------------")
+        
+        
+        #User.empresa.add(eventosss)
+        #User.clientes.save()
+
+    return render(request, 'historial.html')
+    '''
     

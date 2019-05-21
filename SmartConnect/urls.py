@@ -42,11 +42,11 @@ app_name = "convocatorias"
 urlpatterns = [
     path('', views.index_view, name='home'),
     path('admin/', admin.site.urls),
-    #path('inicio/', views.inicio_view, name='inicio'),
+    path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
     path('registro/', views.registrarse_view, name='registro'),
     path('perfil/', views.perfil_view, name='perfil'),
-    path('Editar/', views.editarperfil_view, name='editarperfil'),
+    path('editar/', views.editarperfil_view, name='editarperfil'),
     path('logaout/', views.logaout_view, name='logaout'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('^convsaved/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
+    path('^misconvocatorias/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
