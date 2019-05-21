@@ -46,7 +46,7 @@ urlpatterns = [
     path('registro/', views.registrarse_view, name='registro'),
     path('perfil/', views.perfil_view, name='perfil'),
     path('editar/', views.editarperfil_view, name='editarperfil'),
-    path('logaout/', views.logaout_view, name='logaout'),
+    path('logout/', views.logout_view, name='logout'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('^misconvocatorias/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

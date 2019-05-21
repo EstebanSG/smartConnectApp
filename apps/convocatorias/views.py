@@ -1,7 +1,16 @@
+from __future__ import unicode_literals
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Convocatorias
-from .forms import ConvocatoriaForm
+from django.views.generic.edit import FormView
+from .models import *
+from django import *
+from django import forms
+from .forms import *
+from django.utils.translation import gettext as _
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse_lazy
+from django.core.mail import send_mail
+from django.template.loader import get_template
 
 # Create your views here.
 def index_view(request):
@@ -25,14 +34,46 @@ def login_view(request, *args, **kwargs):
 def registrarse_view(request, *args, **kwargs):
     return render(request, "newaccount.html", {})
 
-def perfil_view(request, *args, **kwargs):
-    return render(request, "perfil.html", {})
+def perfil_view(request, pk=None):
+    if pk:
+        datosUser = User.objects.get(pk=pk)
+    else:
+        datosUser = request.user
+    context = {
+        'user': datosUser
+        }
+    return render(request, "perfil.html", context)
 
-def editarperfil_view(request, *args, **kwargs):
-    return render(request, "editperfil.html", {})
+def editarperfil_view(request, pk=None):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        profile_form = AlumnosForm(request.POST, instance=request.user.alumnos)
 
-def logaout_view(request, *args, **kwargs):
-    return render(request, "index.html", {})
+        if form.is_valid() or profile_form.is_valid():
+         
+            form.save()
+            profile_form.save()
+            if pk:
+                datosUser = User.objects.get(pk=pk)
+            else:
+                datosUser = request.user
+            context = {
+                'user': datosUser
+                }
+            return render(request, 'perfil.html', context)
+    else:
+        form = EditProfileForm(instance=request.user)
+        profile_form = AlumnosForm(instance=request.user.alumnos)
+        args = {'form': form,'profile_form':profile_form}
+        return render(request, 'editperfil.html', args)
+    
+
+def logout_view(request):
+    conv_smarconnect= Convocatorias.objects.all()
+    context = {
+        'conv_smarconnect':conv_smarconnect
+        }
+    return render(request,'logout.html',context)
 
 def eliminarConvocatoriaCliente(request, pk=None):
     return render(request, 'historial.html')

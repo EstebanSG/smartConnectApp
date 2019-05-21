@@ -40,7 +40,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-light" href="/logaout">Cerrar Sesion</a>
+        <a class="nav-link text-light" href="/logout">Cerrar Sesion</a>
       </li>
 
     </ul>
@@ -53,7 +53,7 @@
 	<div class="row">
 		<div class="figure col-md-12">
 			<div style="height: 250px; width: 250px">
-				<img class="figure-img img-fluid bg-dark rounded" src="{% static 'img/fotoPerfil.jpeg'%}" alt="Responsive image">
+				<img class="figure-img img-fluid bg-dark rounded" src="{{user.alumnos.foto.url}}" alt="Responsive image">
 			</div>
 		</div>
   </div>
@@ -61,60 +61,19 @@
 <br>
 <br>
   <div class="row">
-    <div class="col-md-12">
-      <input type="file" id="idfile" hidden="hidden">
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="button" id="idbtnfile">Elegir Archivo</button>
-      <span id="textbtnfile">no file chosen, yet.</span>
-    </div>
   </div>
 </div>
 
 <br>
 <br>
 <div class="container">
-  <form method="POST">
-	<div class="row">
-		<div class="col-sm-12 col-md-4">
-			<label>Nombre:</label>
-			<input type="text" name="nombre">
-		</div>
-		<div class="col-sm-12 col-md-4">
-			<label>Apellidos:</label>
-			<input type="text" name="apeliidos">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12 col-md-4">
-			<label>Matricula:</label>
-			<input type="text" name="matricula">
-		</div>
-		<div class="col-sm-12 col-md-4">
-			<label>Carrera:</label>
-			<input type="text" name="carrera">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12 col-md-4">
-			<label>Correo:</label>
-			<input type="text" name="correo">
-		</div>
-	</div>
-  <div class="row">
-    <div class="col-sm-12 col-md-12">
-      <small class="form-text">Si desea cambiar su contraseña ingrese a este link <a class="text-warning" href="password/">Cambiar contraseña</a></small>
-    </div>
-  </div>
-  <br>
-	<div class="row">
-		<div class="col-sm-12 col-md-4">
-			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Guardar Cambios</button>
-		</div>
-		<div class="col-sm-12 col-md-4">
-			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0" formaction='perfil.html'>Cancelar</button>
-		</div>
-	</div>
+  <form method="post">
+      {% csrf_token %}
+      {{profile_form|crispy}}
+      <br>
+      <button type="submit" class="btn btn-primary">Actualizar</button>
   </form>
-		
+  
 </div>
 
 
@@ -177,3 +136,47 @@
 </script>
 </body>
 </html>
+
+
+<!--
+  	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<label>Nombre:</label>
+			<input type="text" name="nombre">
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label>Apellidos:</label>
+			<input type="text" name="apeliidos">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<label>Matricula:</label>
+			<input type="text" name="matricula">
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<label>Carrera:</label>
+			<input type="text" name="carrera">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<label>Correo:</label>
+			<input type="text" name="correo">
+		</div>
+	</div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <small class="form-text">Si desea cambiar su contraseña ingrese a este link <a class="text-warning" href="password/">Cambiar contraseña</a></small>
+    </div>
+  </div>
+  <br>
+	<div class="row">
+		<div class="col-sm-12 col-md-4">
+			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Guardar Cambios</button>
+		</div>
+		<div class="col-sm-12 col-md-4">
+			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0" formaction='perfil.html'>Cancelar</button>
+		</div>
+	</div>
+-->

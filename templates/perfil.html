@@ -40,7 +40,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link text-light" href="/logaout">Cerrar Sesion</a>
+        <a class="nav-link text-light" href="/logout">Cerrar Sesion</a>
       </li>
     </ul>
   </div>
@@ -52,7 +52,7 @@
 	<div class="row">
 		<div class="figure col-md-12">
 			<div style="height: 250px; width: 250px">
-				<img class="figure-img img-fluid bg-dark rounded" src=" {% static 'img/fotoPerfil.jpeg' %}" alt="Responsive image">
+				<img class="figure-img img-fluid bg-dark rounded" src="{{user.alumnos.foto.url}}" alt="Responsive image">
 			</div>
 			
 		</div>
@@ -65,33 +65,37 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
+			<label>Nombre de usuario:</label>
+			<p>{{ user }}</p>
+		</div>
+		<div class="col-sm-12 col-md-4">
 			<label>Nombre:</label>
-			<p>Esteban</p>
+			<p>{{ user.alumnos.nombre }}</p>
 		</div>
 		<div class="col-sm-12 col-md-4">
 			<label>Apellidos:</label>
-			<p>Segura Guerrero</p>
+			<p>{{ user.alumnos.apellidop }} {{ user.alumnos.apellidom }}</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
 			<label>Matricula:</label>
-			<p>A01422353</p>
+			<p>{{ user.alumnos.matricula }}</p>
 		</div>
 		<div class="col-sm-12 col-md-4">
 			<label>Carrera:</label>
-			<p>ITC</p>
+			<p>{{ user.alumnos.carrera }}</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
 			<label>Correo:</label>
-			<p>A01422353@itesm.mx</p>
+			<p>{{ user.email }}</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-12 col-md-4">
-			<button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Editar Información</button>
+			<button type="button" onclick="window.location.href='/editar'" class="btn btn-outline-warning my-2 my-sm-0">Editar Información</button>
 		</div>
 	</div>
 		
