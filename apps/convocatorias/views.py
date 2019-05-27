@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView
 from .models import *
 from django import *
@@ -31,8 +31,29 @@ def inicio_view(request):
 def login_view(request, *args, **kwargs):
     return render(request, "login.html", {})
 
-def registrarse_view(request, *args, **kwargs):
-    return render(request, "newaccount.html", {})
+def registrarse_view(request):
+    if request.method =='POST':
+        form = RegistroForm(request.POST)
+        
+        if form.is_valid(): 
+            form.save()
+            return redirect('login')
+        else:
+            
+            form = RegistroForm()
+         
+            
+            args = {
+                'form': form
+                }
+            return render(request, 'newaccount.html', args)
+   
+    else:
+        form = RegistroForm()
+        args = {'form': form}
+
+    return render(request, 'newaccount.html',args)
+    
 
 def perfil_view(request, pk=None):
     if pk:
@@ -69,15 +90,14 @@ def editarperfil_view(request, pk=None):
     
 
 def logout_view(request):
-    conv_smarconnect= Convocatorias.objects.all()
-    context = {
-        'conv_smarconnect':conv_smarconnect
-        }
-    return render(request,'logout.html',context)
+
+    return render(request,'logout.html')
 
 def eliminarConvocatoriaCliente(request, pk=None):
-    return render(request, 'historial.html')
+    return render(request, 'convsaved.html')
 
+def misconvocatorias_view(request,):
+    return render(request, 'convsaved.html')
 
 def agregarConvocatoriaCliente(request, pk=None):
     if pk:

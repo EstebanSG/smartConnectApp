@@ -43,10 +43,11 @@ urlpatterns = [
     path('', views.index_view, name='home'),
     path('admin/', admin.site.urls),
     path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
+    path('misconvocatorias/', views.misconvocatorias_view, name='misconvocatorias'),
     path('registro/', views.registrarse_view, name='registro'),
     path('perfil/', views.perfil_view, name='perfil'),
     path('editar/', views.editarperfil_view, name='editarperfil'),
-    path('logout/', views.logout_view, name='logout'),
+    path('logout/', LogoutView.as_view(next_page=reverse_lazy('home')), name='logout'),
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('^misconvocatorias/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
+    path('misconvocatorias/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
