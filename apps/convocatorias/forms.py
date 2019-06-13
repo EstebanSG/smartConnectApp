@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from tinymce.widgets import TinyMCE
 from ckeditor.widgets import CKEditorWidget
 
+
 class ConvocatoriaForm(forms.ModelForm):
     class Meta:
         model = Convocatorias
@@ -53,15 +54,14 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'password'
         )
-
 class AlumnosForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AlumnosForm, self).__init__(*args, **kwargs)
-    
+
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     apellidop = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     apellidom = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    foto = forms.FileField()
+    foto = forms.ImageField()
     matricula = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     carrera = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 

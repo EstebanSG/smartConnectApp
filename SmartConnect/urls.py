@@ -40,14 +40,14 @@ from django.contrib.auth.views import (
 )
 app_name = "convocatorias"
 urlpatterns = [
-    path('', views.index_view, name='home'),
+    path('inicio/', views.index_view, name='home'),
     path('admin/', admin.site.urls),
     path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
     path('misconvocatorias/', views.misconvocatorias_view, name='misconvocatorias'),
     path('registro/', views.registrarse_view, name='registro'),
     path('perfil/', views.perfil_view, name='perfil'),
     path('editar/', views.editarperfil_view, name='editarperfil'),
-    path('logout/', LogoutView.as_view(next_page=reverse_lazy('home')), name='logout'),
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', LogoutView.as_view(next_page=reverse_lazy('login')), name='logout'),
+    path('', LoginView.as_view(template_name='index.html'), name='login'),
     path('misconvocatorias/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

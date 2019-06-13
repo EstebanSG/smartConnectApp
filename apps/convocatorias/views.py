@@ -18,7 +18,7 @@ def index_view(request):
     context = {
         'conv': obj
     }
-    return render(request, "index.html", context)
+    return render(request, "inicio.html", context)
 
 def inicio_view(request):
     obj = Convocatorias.objects.all()
@@ -26,10 +26,10 @@ def inicio_view(request):
     context = {
         'conv': obj
     }
-    return render(request, "index.html", context)
+    return render(request, "inicio.html", context)
 
 def login_view(request, *args, **kwargs):
-    return render(request, "login.html", {})
+    return render(request, "index.html", {})
 
 def registrarse_view(request):
     if request.method =='POST':

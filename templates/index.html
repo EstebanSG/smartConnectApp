@@ -13,10 +13,8 @@
 
 </head>
 <body>
-		{% if user.is_authenticated %}
+<!--Navbar -->
 
-		HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
-<!--Navbar con sesion iniciada-->
 <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand text-light" href="/">
   	<img src="{% static 'img/HorizontalPrimario Blanco.png' %}" width="100" height="30" alt="">
@@ -28,223 +26,74 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
       <li class="nav-item active">
-        <a class="nav-link text-warning" href="/">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/perfil">Perfil</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/misconvocatorias">Mis Convocatorias</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/logout">Cerrar Sesion</a>
-      </li>
-
-    </ul>
-  </div>
-</nav>
-<div class="container container-fluid">
-	<div class="row justify-content-md-center">
-		<div class="col-sm-8 col-lg">
-			<h1>Convocatorias Recientes</h1>
-		</div>	
-		<br>
-        <br>
-        <br>
-        <br>	
-	</div>
-	<div class="row">
-		<div class="col-sm-8 col-md-8 col-lg-8">
-			<div class="dropdown">
-  				<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			Categorías
-  				</button>
-  			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			    <button class="dropdown-item active" href="#">Todas</button>
-			    <button class="dropdown-item" type="button">Ingeniería</button>
-			    <button class="dropdown-item" type="button">Ciencias</button>
-			    <button class="dropdown-item" type="button">Energía y Recursos</button>
-			    <button class="dropdown-item" type="button">Ética y Sociedad</button>
-			    <button class="dropdown-item" type="button">Salud y Belleza</abutton>
-			    <button class="dropdown-item" type="button">Tecnología</button>
-			    <button class="dropdown-item" type="button">Arte y Cultura</button>
-			    <button class="dropdown-item" type="button">Idiomas</button>
-			    <button class="dropdown-item" type="button">Negocios</button>
-  			</div>
-			</div>
-		</div>
-	
-		<div class="col-sm-4 col-md-4 col-lg-4">
-			<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search">
-					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
-		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<table class="table table-dark table-bordered table-hover table-responsive">
-				<thead>
-					<tr class="">
-						<th scope="col">Nombre</th>
-						<th scope="col">Información</th>
-						<th scope="col">Duración</th>
-						<th scope="col">Video</th>
-						<th scope="col">Link</th>
-					</tr>
-				</thead>
-				<tbody>
-						{% for cv in conv %}
-					<tr>
-						<td>{{cv.nombre}}</td>
-						<td>{{cv.informacion}}</td>
-						<td>{{cv.duracion}}</td>
-						<td><iframe width='300' height='150' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
-						<td><a class='nav-link' href='{{cv.link}}'>Página Oficial</td>
-					<td>	<input type="button"  style="cursor:pointer" class="btn btn-outline-warning my-2 my-sm-0" value="Aceptar" onclick="window.location.href='{% url 'agregarConvocatoriaCliente' pk=cv.id %}'" /></td>
-						</tr>
-				{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</div>
-	
-</div>
-
-{% else %}
-	
-<!--Navbar sin sesion iniciada-->
-
-<nav class="navbar  navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand text-light" href="#">
-  	<img src="img/HorizontalPrimario Blanco.png" width="100" height="30" alt="">
-  	SmartConnect
-  </a>
-  <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link text-warning" href="/">Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-warning" href="/">Iniciar Sesión <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="/login">Iniciar Sesion</a>
-       </li>
+        <a class="nav-link text-light" href="/admin">Becario</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/registro">Crear Cuenta</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
   </div>
 </nav>
-<div class="container container-fluid">
-	<div class="row justify-content-md-center">
-		<div class="col-sm-8 col-lg">
-			<h1>Convocatorias Recientes</h1>
-		</div>	
-		<br>
-        <br>
-        <br>
-        <br>	
-	</div>
-	<div class="row">
-		<div class="col-sm-8 col-md-8 col-lg-8">
-			<div class="dropdown">
-  				<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			Categorías
-  				</button>
-  			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			    <button class="dropdown-item active" href="#">Todas</button>
-			    <button class="dropdown-item" type="button">Ingeniería</button>
-			    <button class="dropdown-item" type="button">Ciencias</button>
-			    <button class="dropdown-item" type="button">Energía y Recursos</button>
-			    <button class="dropdown-item" type="button">Ética y Sociedad</button>
-			    <button class="dropdown-item" type="button">Salud y Belleza</abutton>
-			    <button class="dropdown-item" type="button">Tecnología</button>
-			    <button class="dropdown-item" type="button">Arte y Cultura</button>
-			    <button class="dropdown-item" type="button">Idiomas</button>
-			    <button class="dropdown-item" type="button">Negocios</button>
-  			</div>
+<br>
+<br>
+<!--/Navbar -->
+
+<!-- Body -->
+<div class="container">	
+		<div class="row justify-content-md-center">
+			<div class="col-md">
+				<div class="" style="width: 800px;">
+				<!--<img style=" max-width: 30%; height: auto;" src="{% static 'img/LogoTec.png' %}" class="img-fluid" alt="Responsive image">
+      -->
+      </div>
 			</div>
 		</div>
-	
-		<div class="col-sm-4 col-md-4 col-lg-4">
-			<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search">
-					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
+		<div class="row justify-content-md-center">
+			<form method="POST">
+					{% csrf_token %}
+					{{ form|crispy }}
+				<button type="submit" class="btn btn-outline-warning my-2 my-sm-0">Login</button>
 			</form>
 		</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-sm-12 col-md-12 col-lg-12">
-			<table class="table table-dark table-bordered table-hover table-responsive">
-
-				<thead>
-					<tr class="">
-						<th scope="col">Nombre</th>
-						<th scope="col">Información</th>
-						<th scope="col">Duración</th>
-						<th scope="col">Video</th>
-						<th scope="col">Link</th>
-					</tr>
-				</thead>
-				<tbody>
-						{% for cv in conv %}
-					<tr>
-						<td>{{cv.nombre}}</td>
-						<td>{{cv.informacion}}</td>
-						<td>{{cv.duracion}}</td>
-						<td><iframe width='300' height='150' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
-						<td><a class='nav-link' href='{{cv.link}}'>Página Oficial</td>
-					</tr>
-				{% endfor %}
-				</tbody>
-			</table>
+		<br>
+		<div class="row justify-content-md-center">
+			<p class="loginhere">
+					¿Aún no tienes cuenta? <a href="/registro" class="loginhere-link"> Registrate aquí</a>
+			</p>
 		</div>
 	</div>
-	
-</div>
-<!--Navbar sin sesion iniciada-->
-{% endif %}
+
 <!--Footer-->
 <footer style="margin-top: 600px;" class="py-5 bg-dark">
-	<div class="container">
-						<div class="row">
-								<div class="col-md-3 col-sm-4 col-xs-12">
-										<p>
-											<i class="fa fa-phone"></i>
-											<span style="color: white;"> Tel&eacute;fono: </span>
-											<a class="text-warning">Tel.(+52)777 362 0893</a>
-										</p>
-								</div>
-								<div class="col-md-3 col-sm-4 col-xs-12">
-										<p>
-											<i class="fa fa-envelope-o"></i>
-											<span style="color: white;"> Correo: </span>
-											<a class="text-warning" href="#">mdimayuga@itesm.mx</a>
-										</p>
-								</div>
-						</div>
-				</div>
-				<br>
-				<br>
-	<div class="container">
-		<p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
-	</div>
-</footer>
-<!--Footer-->
+      <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <p>
+                        	<i class="fa fa-phone"></i>
+                        	<span style="color: white;"> Tel&eacute;fono: </span>
+                        	<a class="text-warning">Tel.(+52)777 362 0893</a>
+                        </p>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <p>
+                        	<i class="fa fa-envelope-o"></i>
+                        	<span style="color: white;"> Correo: </span>
+                        	<a class="text-warning" href="#">mdimayuga@itesm.mx</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+      <div class="container">
+        <p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
+      </div>
+    </footer>
+<!--/Footer-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

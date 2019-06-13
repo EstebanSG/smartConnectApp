@@ -13,8 +13,10 @@
 
 </head>
 <body>
-<!--Navbar -->
+		{% if user.is_authenticated %}
 
+		HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
+<!--Navbar con sesion iniciada-->
 <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand text-light" href="/">
   	<img src="{% static 'img/HorizontalPrimario Blanco.png' %}" width="100" height="30" alt="">
@@ -88,7 +90,6 @@
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<table class="table table-dark table-bordered table-hover table-responsive">
-
 				<thead>
 					<tr class="">
 						<th scope="col">Nombre</th>
@@ -99,42 +100,23 @@
 					</tr>
 				</thead>
 				<tbody>
+						{% for cv in conv %}
 					<tr>
-						<form method="POST">
-							<td>Convocatoria 1</td>
-							<td>Info</td>
-							<td>3 semanas</td>
-							<td><iframe width='300' height='150' src='#' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
-							<td><a class='nav-link' href='#'>Página Oficial</td>
-							<td><input class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="btnDelete" value="Eliminar"></td>
-						</form>
-					</tr>
-					<tr>
-						<form method="POST">
-							<td>Convocatoria 2</td>
-							<td>Info</td>
-							<td>3 semanas</td>
-							<td><iframe width='300' height='150' src='#' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
-							<td><a class='nav-link' href='#'>Página Oficial</td>
-							<td><input class="btn btn-primary" type="submit" name="btnDelete" value="Eliminar"></td>
-						</form>
-					</tr>
-					<tr>
-						<form method="POST">
-							<td>Convocatoria 2</td>
-							<td>Info</td>
-							<td>3 semanas</td>
-							<td><iframe width='300' height='150' src='#' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
-							<td><a class='nav-link' href='#'>Página Oficial</td>
-							<td><input class="btn btn-primary" type="submit" name="btnDelete" value="Eliminar"></td>
-						</form>
-					</tr>
+						<td>{{cv.nombre}}</td>
+						<td>{{cv.informacion}}</td>
+						<td>{{cv.duracion}}</td>
+						<td><iframe width='300' height='150' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></td>
+						<td><a class='nav-link' href='{{cv.link}}'>Página Oficial</td>
+					<td>	<input type="button"  style="cursor:pointer" class="btn btn-outline-warning my-2 my-sm-0" value="Aceptar" onclick="window.location.href='{% url 'agregarConvocatoriaCliente' pk=cv.id %}'" /></td>
+						</tr>
+				{% endfor %}
 				</tbody>
 			</table>
 		</div>
 	</div>
 	
 </div>
+{% endif %}
 <!--Footer-->
 <footer style="margin-top: 600px;" class="py-5 bg-dark">
 	<div class="container">
@@ -161,7 +143,7 @@
 		<p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
 	</div>
 </footer>
-<!--/Footer-->
+<!--Footer-->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
