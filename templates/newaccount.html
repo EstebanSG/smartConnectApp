@@ -1,133 +1,167 @@
 {% load static %}
 {% load crispy_forms_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="es-MX">
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-	<title>Convocatorias</title>
+	<!-- Stylesheets
+	============================================= -->
 
-  <script type="text/javascript">
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
 
-    function agree_term_cond(){
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
 
-      var checkbox = document.getElementById('checklegal').checked;
-      var btncrear = document.getElementById('idbtncrear');
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
 
-      if(checkbox == false){
-        btncrear.disabled = true;
-      }else{
-        btncrear.disabled = false;
-      }
-    }
+	<!-- Document Title
+	============================================= -->
+	<title>Smartconnect</title>
+	<script type="text/javascript">
 
-  </script>
+    	function agree_term_cond(){
+
+	      var checkbox = document.getElementById('checklegal').checked;
+	      var btncrear = document.getElementById('btnsave');
+
+	      if(checkbox == false){
+	        btncrear.disabled = true;
+	      }else{
+	        btncrear.disabled = false;
+	      }
+	    }
+
+  	</script>
 
 </head>
 
-<body>
-<!--Navbar -->
+<body class="stretched">
 
-<nav class="navbar  navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand text-light" href="/">
-  	<img src="{% static 'img/HorizontalPrimario Blanco.png' %}" width="100" height="30" alt="">
-  	SmartConnect
-  </a>
-  <button class="navbar-toggler bg-secondary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header dark">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link text-warning" href="/registro">Crear Cuenta <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/">Inicio</a>
-        </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/login">Iniciar Sesion</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<br>
-<br>
-<!-- Body -->
+			<div id="header-wrap">
 
-<div class="container justify-content-md-center">	
-  <div class="row">
-    <div class="col-md">
-       <h1>Crear una nueva cuenta</h1>
-    </div>  
-  </div>
-	<div class="row justify-content-md-center">
-    <form method="POST" class="form-horizontal">
-      {% csrf_token %}
-      {{ form|crispy }}
+				<div class="container clearfix">
 
-       
-        <div class="form-group form-check">
-          <input type="checkbox" name="legal" class="form-check-input" id="checklegal" onclick="agree_term_cond()">
-          <label class="form-check-label" for="legal">Aceptar los 
-            <a class="text-warning" href="https://tec.mx/es/aviso-de-privacidad-para-participantes-y-expositores-congresos-y-simposiums">
-            Terminos y Condiciones
-            </a>
-          </label>
-        </div>
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+						
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="/" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
 
-        <div class="row">
-          <div class="col-md">
-            <button disabled="true" id="idbtncrear" type="submit" class="btn btn-outline-warning my-2 my-sm-0">Crear</button>
-          </div>
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
 
-          <div class="col-md">
-            <input class="btn btn-outline-warning my-2 my-sm-0" type="button" onclick="location.href='index.html';" value="Cancelar" />
-            <!--<button type="button" onclick="addUser.php"  class="btn btn-primary">Crear Cuenta</button>-->
-          </div>
-        
-      </div>
-      
-      
-    </form>
-	</div>
-</div>
+						<ul>
+							<li class="current"><a href="/"><div>Iniciar Sesión</div></a></li>
+							<li><a href="/admin"><div>Becario</div></a></li>
+							<li><a href="/registro"><div>Crear Cuenta</div></a></li>
+						</ul>
 
+					</nav><!-- #primary-menu end -->
 
-<!--Footer-->
-<footer style="margin-top: 600px;" class="py-5 bg-dark">
-  <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-4 col-xs-12">
-                    <p>
-                      <i class="fa fa-phone"></i>
-                      <span style="color: white;"> Tel&eacute;fono: </span>
-                      <a class="text-warning">Tel.(+52)777 362 0893</a>
-                    </p>
-                </div>
-                <div class="col-md-3 col-sm-4 col-xs-12">
-                    <p>
-                      <i class="fa fa-envelope-o"></i>
-                      <span style="color: white;"> Correo: </span>
-                      <a class="text-warning" href="#">mdimayuga@itesm.mx</a>
-                    </p>
-                </div>
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+
+		<!-- Content
+    ============================================= -->
+		<section id="content">
+
+			<div class="content-wrap nopadding">
+
+				<div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: center center no-repeat; background-size: cover;"><video src="{% static 'videos/gente.mp4' %}" type="video/mp4" autoplay loop></video></div>
+        <br>
+				<div class="section nobg full-screen nopadding nomargin">
+            <br>
+            <br>
+            <br>
+					<div class="container vertical-middle divcenter clearfix">
+
+					<!--	<div class="row center">
+							<a href="index.html"><img style="width: 300px; height: 200px; border-radius: 200px; border:10px solid #666;" src="{% static 'img/logoblanco.jpg' %}" alt="Logo"></a>
             </div>
-        </div>
-        <br>
-        <br>
-  <div class="container">
-    <p class="m-0 text-center text-white">SmartConnect &copy; Copyright</p>
-  </div>
-</footer>
-<!--/Footer-->
+          -->
+            
+						<div class="panel panel-default divcenter noradius noborder" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
+							<div class="panel-body" style="padding: 40px;">
+								<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
+									<h3>Crear una nueva cuenta</h3>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+									<div  class="col_full">
+										{% csrf_token %}
+										{{ form|crispy }}
+									</div>
+									<br>
+									<div class="form-group form-check">
+						          		<input type="checkbox" name="legal" class="form-check-input" id="checklegal" onclick="agree_term_cond()">
+						          		<label class="form-check-label" for="legal">Aceptar los <a class="loginhere-link" href="https://tec.mx/es/aviso-de-privacidad-para-participantes-y-expositores-congresos-y-simposiums">Terminos y Condiciones</a>
+						          		</label>
+						        	</div>
+									<div class="col_full nobottommargin">
+										<button disabled="true" type="submit" class="button button-3d button-black nomargin" id="btnsave" name="login-form-submit" value="login">Guardar</button>
+										<input class="button button-3d button-black nomargin" type="button" onclick="location.href='/';" value="Cancelar" />
+                  </div>
+								</form>
+
+								<div  class="line line-sm"></div>
+
+								<div class="row justify-content-md-center">
+									<p style="padding-left: 20%" class="loginhere">¿Ya tienes cuenta? <a href="/registro" class="loginhere-link"> Inicia sesion aquí</a></p></div>
+							</div>
+            </div>
+            <br>
+            <br>
+            <br>
+						<div class="row center dark"><small>Copyrights &copy; All Rights Reserved by SmartConnect</small></div>
+           
+					</div>
+				</div>
+        <br>
+        <br>
+        <br>
+			</div>
+
+		</section><!-- #content end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
