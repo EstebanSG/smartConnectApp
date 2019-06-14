@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'multiselectfield',
 ]
 
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Smartconnect'
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
