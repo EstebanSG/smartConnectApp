@@ -65,8 +65,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 						<ul>
 							<li class="current"><a href="/inicio"><div>Inicio</div></a></li>
-							<li><a href="/perfil"><div>Perfil</div></a></li>
 							<li><a href="/misconvocatorias"><div>Mis Convocatorias</div></a></li>
+							<li><a href="/perfil"><div>Perfil</div></a></li>
 							<li><a href="/logout"><div>Cerrar Sesión</div></a></li>
 						</ul>
 
@@ -80,7 +80,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 		<div class="container container-fluid">
 	<div class="row justify-content-md-center">
 		<div class="col-sm-8 col-lg">
-			<h1>Convocatorias Recientes</h1>
+			<h1>Mis Convocatorias</h1>
 		</div>	
 		<br>
         <br>
@@ -138,10 +138,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 						<td>
 							<!-- Large modal -->
 						<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Ver Video</button>
-								
-						
-					{% if cv.video %}
-					<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+						<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-lg">
 								<div class="modal-body">
 									<div class="modal-content">
@@ -156,10 +154,9 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 								</div>
 							</div>
 						</div>
-					{% endif %}
 						</td>
 						<td><a class='nav-link' href='{{cv.link}}'>Página Oficial</td>
-						<td><input type="button"  style="cursor:pointer" class="btn btn-outline-warning my-2 my-sm-0" value="Aceptar" onclick="window.location.href='{% url 'agregarConvocatoriaCliente' pk=cv.id %}'" /></td>
+						<td><input type="button"  style="cursor:pointer" class="btn btn-outline-warning my-2 my-sm-0" value="Aceptar" onclick="window.location.href='{% url 'eliminarConvocatoriaCliente' pk=cv.id %}'" /></td>
 						</tr>
 					{% endfor %}
 				</tbody>

@@ -49,5 +49,5 @@ urlpatterns = [
     path('editar/', views.editarperfil_view, name='editarperfil'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('login')), name='logout'),
     path('', LoginView.as_view(template_name='index.html'), name='login'),
-    path('misconvocatorias/(?P<pk>\d+)/',views.agregarConvocatoriaCliente,name="agregarConvocatoriaCliente"),
+    path('misconvocatorias/(?P<pk>\d+)/', views.agregarConvocatoriaCliente, name="agregarConvocatoriaCliente"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
