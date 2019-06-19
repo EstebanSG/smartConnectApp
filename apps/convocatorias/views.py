@@ -94,6 +94,23 @@ def logout_view(request):
     return render(request,'logout.html')
 
 def eliminarConvocatoriaCliente(request, pk=None):
+    if pk:
+        convocatoria = Convocatorias.objects.get(pk=pk)
+    
+        #user = User.objects.get(pku=pku)  
+        #context = {'eventosss':eventosss}
+    request.user.alumnos.convocatorias.delete(convocatoria.id)
+    print("-----------------------ESTA COSITA-----------------------------")
+   
+    print("-----------------------ESTA COSITA-----------------------------")
+    
+    
+
+        
+        
+        #User.empresa.add(eventosss)
+        #User.clientes.save()
+
     return render(request, 'convsaved.html')
 
 def misconvocatorias_view(request,):

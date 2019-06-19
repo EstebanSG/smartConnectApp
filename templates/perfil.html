@@ -77,65 +77,141 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 			</div>
 
 		</header><!-- #header end -->
-		<br>
-		<br>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="figure col-md-12">
-					<div style="height: 250px; width: 250px">
-						<img class="figure-img img-fluid bg-dark rounded" src="{{user.alumnos.foto.url}}" alt="Responsive image">
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-md-4">
-					<label>Nombre de usuario:</label>
-					<p>{{ user }}</p>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<label>Nombre:</label>
-					<p>{{ user.alumnos.nombre }}</p>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<label>Apellidos:</label>
-					<p>{{ user.alumnos.apellidop }} {{ user.alumnos.apellidom }}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-4">
-					<label>Matricula:</label>
-					<p>{{ user.alumnos.matricula }}</p>
-				</div>
-				<div class="col-sm-12 col-md-4">
-					<label>Carrera:</label>
-					<p>{{ user.alumnos.carrera }}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-4">
-					<label>Correo:</label>
-					<p>{{ user.email }}</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-md-4">
-					<button type="button" onclick="window.location.href='/editar'" class="btn btn-outline-warning my-2 my-sm-0">Editar Información</button>
-				</div>
-			</div>
-				
-		</div>
+		<!-- Video 
+		============================================= -->
+		<div class="section parallax nobottommargin noborder dark" style="height: 450px; padding: 120px 0; margin: 0px;">
 
+			<div class="container clearfix">
+
+				<div class="slider-caption slider-caption-center" style="position: relative;">
+					<div data-animate="fadeInUp">
+						<h2>Estas a un paso de superarte</h2>
+						<p>Explora &amp; y sal de tu zona de confort</p>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="video-wrap">
+				<video poster="{% static 'images/videos/explore.jpg' %}" preload="auto" loop autoplay muted>
+					<source src="{% static 'images/videos/explore.mp4' %}" type='video/mp4' />
+				</video>
+				<div class="video-overlay" style="background-color: rgba(0,0,0,0.1);"></div>
+			</div>
+
+		</div><!-- #Video end -->
+
+<!-- Page Perfil
+		============================================= -->
+		<div style="margin: 0px" class="section">
+
+			<div class="container clear-bottommargin clearfix">
+
+				<div class="heading-block center">
+					<h2>Perfil</h2>
+					<span>Hola {{ user.alumnos.nombre }}.</span>
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-4 bottommargin">
+						<img data-animate="fadeInLeftBig" src="{{user.alumnos.foto.url}}" alt="iPhone" class="center-block">
+					</div>
+
+					<div class="col-md-4 col-sm-6 topmargin bottommargin">
+
+						<div class="col_full">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a href="#"><i class="icon-line-monitor"></i></a>
+								</div>
+								<h3>Nombre:</h3>
+								<strong>{{ user.alumnos.nombre }}</strong>
+							</div>
+
+						</div>
+
+						<div class="col_full">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a href="#"><i class="icon-line-eye"></i></a>
+								</div>
+								<h3>Nombre de usuario:</h3>
+								<strong>{{ user }}</strong>
+							</div>
+
+						</div>
+
+						<div class="col_full nobottommargin">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a href="#"><i class="icon-line-power"></i></a>
+								</div>
+								<h3>Matricula: </h3>
+								<strong>{{ user.alumnos.matricula }}</strong>
+							</div>
+
+						</div>
+						
+
+					</div>
+
+					<div class="col-md-4 col-sm-6 topmargin bottommargin">
+
+						<div class="col_full">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a href="#"><i class="icon-line-layers"></i></a>
+								</div>
+								<h3>Apellidos: </h3>
+								<strong>{{ user.alumnos.apellidop }} {{ user.alumnos.apellidom }}</strong>
+							</div>
+
+						</div>
+
+						<div class="col_full">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a href="#"><i class="icon-line-star"></i></a>
+								</div>
+								<h3>Correo:</h3>
+								<strong>{{ user.email }}</strong>
+							</div>
+
+						</div>
+
+						<div class="col_full nobottommargin">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a href="#"><i class="icon-line-anchor"></i></a>
+								</div>
+								<h3>Carrera:</h3>
+								<strong>{{ user.alumnos.carrera }}</strong>
+							</div>
+
+						</div>
+						
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12 col-md-4">
+						<button type="button" onclick="window.location.href='/editar'" class="btn btn-primary">Editar Información</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div><!-- #Perfil end -->
 {% endif %}
-		<br>
-		<br>
-		<br>
+		
 <!-- Footer
 		============================================= -->
 		<footer id="footer" class="dark" style="background: url('{% static 'images/footer-bg.jpg' %}') repeat fixed; background-size: 100% 100%;">
