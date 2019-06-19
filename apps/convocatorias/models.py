@@ -42,7 +42,7 @@ class Convocatorias(models.Model):
      nombre = models.CharField(max_length = 100, default=None, blank=True, null=True)
      informacion = models.TextField( blank = True, null = True)
      duracion = models.CharField(max_length = 200, default=None)
-     video = models.CharField(max_length = 200, default=None, null=True)
+     video = models.CharField(max_length = 200, default=None, null=True, blank= True)
      link = models.CharField(max_length = 200, default=None, null=False)
      Categoria = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
      Ingenieria = models.CharField(max_length = 200,choices=INGENIERIA_CHOICES,default=None)

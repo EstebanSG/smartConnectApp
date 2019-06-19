@@ -86,7 +86,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 				<div class="slider-caption slider-caption-center" style="position: relative;">
 					<div data-animate="fadeInUp">
 						<h2>Estas a un paso de superarte</h2>
-						<p>Explora &amp; y sal de tu zona de confort</p>
+						<p>Explora &amp; sal de tu zona de confort</p>
 					</div>
 				</div>
 
@@ -124,7 +124,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
-									<a href="#"><i class="icon-line-monitor"></i></a>
+									<a><i class="icon-user"></i></a>
 								</div>
 								<h3>Nombre:</h3>
 								<strong>{{ user.alumnos.nombre }}</strong>
@@ -136,7 +136,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
-									<a href="#"><i class="icon-line-eye"></i></a>
+									<a><i class="icon-meh"></i></a>
 								</div>
 								<h3>Nombre de usuario:</h3>
 								<strong>{{ user }}</strong>
@@ -148,7 +148,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
-									<a href="#"><i class="icon-line-power"></i></a>
+									<a><i class="icon-barcode"></i></a>
 								</div>
 								<h3>Matricula: </h3>
 								<strong>{{ user.alumnos.matricula }}</strong>
@@ -165,7 +165,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
-									<a href="#"><i class="icon-line-layers"></i></a>
+										<a><i class="icon-user"></i></a>
 								</div>
 								<h3>Apellidos: </h3>
 								<strong>{{ user.alumnos.apellidop }} {{ user.alumnos.apellidom }}</strong>
@@ -177,7 +177,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
-									<a href="#"><i class="icon-line-star"></i></a>
+									<a><i class="icon-envelope"></i></a>
 								</div>
 								<h3>Correo:</h3>
 								<strong>{{ user.email }}</strong>
@@ -189,7 +189,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
-									<a href="#"><i class="icon-line-anchor"></i></a>
+									<a><i class="icon-cogs"></i></a>
 								</div>
 								<h3>Carrera:</h3>
 								<strong>{{ user.alumnos.carrera }}</strong>
@@ -203,7 +203,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 				<div class="row">
 					<div class="col-sm-12 col-md-4">
-						<button type="button" onclick="window.location.href='/editar'" class="btn btn-primary">Editar Información</button>
+						<a onclick="window.location.href='/editar'" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-edit"></i><span>Editar Información</span></a>
+						<!--<button type="button" onclick="window.location.href='/editar'" class="btn btn-primary">Editar Información</button>-->
 					</div>
 				</div>
 

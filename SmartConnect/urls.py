@@ -42,7 +42,7 @@ app_name = "convocatorias"
 urlpatterns = [
     path('inicio/', views.index_view, name='home'),
     path('admin/', admin.site.urls),
-    path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
+    #path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
     path('misconvocatorias/', views.misconvocatorias_view, name='misconvocatorias'),
     path('registro/', views.registrarse_view, name='registro'),
     path('perfil/', views.perfil_view, name='perfil'),

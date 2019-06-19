@@ -114,6 +114,7 @@ def eliminarConvocatoriaCliente(request, pk=None):
     return render(request, 'convsaved.html')
 
 def misconvocatorias_view(request,):
+    
     return render(request, 'convsaved.html')
 
 def agregarConvocatoriaCliente(request, pk=None):
@@ -123,9 +124,9 @@ def agregarConvocatoriaCliente(request, pk=None):
         #user = User.objects.get(pku=pku)  
         #context = {'eventosss':eventosss}
     request.user.alumnos.convocatorias.add(convocatoria.id)
-    print("-----------------------ESTA COSITA-----------------------------")
+    print("-----------------------ESTA COSITA1-----------------------------")
    
-    print("-----------------------ESTA COSITA-----------------------------")
+    print("-----------------------ESTA COSITA1-----------------------------")
     
     
 
