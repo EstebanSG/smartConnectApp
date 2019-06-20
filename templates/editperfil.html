@@ -84,14 +84,29 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 <div class="container">
 	<div class="row">
 		<div class="figure col-md-12">
-			<div style="height: 250px; width: 250px">
-				<img class="figure-img img-fluid bg-dark rounded" src="{{user.alumnos.foto.url}}" alt="Responsive image">
+			<div class="col-sm-4 bottommargin">
+				<div class="team">
+					<div class="team-image">
+						{%if user.alumnos.foto.url%}
+						<img src="{{user.alumnos.foto.url}}">
+						{% else %}
+						<img src="{% static 'images/team/1.jpg' %}">
+						{% endif %}
+					</div>
+				</div>
 			</div>
 		</div>
+			<!-- Portfolio Single Image
+					============================================= -->
+			<!-- <div class="col_two_third portfolio-single-image nobottommargin col_last">
+				<img src="{{user.alumnos.foto.url}}" alt=""> -->
+			<!-- .portfolio-single-image end -->
+			<!-- <div style="height: 250px; width: 250px">
+				<img class="figure-img img-fluid bg-dark rounded" src="{{user.alumnos.foto.url}}" alt="Responsive image">
+			</div> -->
+		</div>
   </div>
-  <br>
-<br>
-<br>
+  
   <div class="row">
   </div>
 </div>

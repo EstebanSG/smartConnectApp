@@ -115,7 +115,11 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 				<div class="row">
 
 					<div class="col-md-4 bottommargin">
-						<img data-animate="fadeInLeftBig" src="{{user.alumnos.foto.url}}" alt="iPhone" class="center-block">
+							{%if user.alumnos.foto.url%}
+							<img data-animate="fadeInLeftBig" src="{{user.alumnos.foto.url}}" alt="iPhone" class="center-block">
+							{% else %}
+							<img data-animate="fadeInLeftBig" src="{% static 'images/team/1.jpg' %}" alt="iPhone" class="center-block">
+							{% endif %}
 					</div>
 
 					<div class="col-md-4 col-sm-6 topmargin bottommargin">

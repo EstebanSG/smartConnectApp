@@ -133,7 +133,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 						{% for cv in conv %}
 						<div class="entry clearfix "  data-animate="fadeInLeft">
 							<div class="entry-image">
-								<a href="#">
+								<a >
 									{% if cv.video %}
 										<iframe alt="Inventore voluptates velit totam ipsa tenetur" width='400' height='300' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
 									{% else %}
@@ -150,8 +150,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 								</div>
 								<ul class="entry-meta clearfix">
 									<li><span class="label label-warning">{{cv.Idiomas}}</span></li>
-									<li><a href="#"><i class="icon-time"></i>{{cv.duracion}}</a></li>
-									<li><a href="#"><i class="icon-map-marker2"></i> {{cv.Categoria}}</a></li>
+									<li><a><i class="icon-time"></i>{{cv.duracion}}</a></li>
+									<li><a><i class="icon-map-marker2"></i> {{cv.Categoria}}</a></li>
 								</ul>
 								<div class="entry-content">
 									<p style="color:black;">{{cv.informacion}}</p>
