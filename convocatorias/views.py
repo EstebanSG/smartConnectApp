@@ -11,27 +11,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.template.loader import get_template
-from django.core.paginator import Paginator
 
 # Create your views here.
-
-def listing(request):
-    contact_list = Contacts.objects.all()
-    paginator = Paginator(contact_list, 25) # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    contacts = paginator.get_page(page)
-    return render(request, 'list.html', {'contacts': contacts})
-
 def index_view(request):
     obj = Convocatorias.objects.all()
-    paginator = Paginator(obj, 2)
-
-    page = request.GET.get('page')
-    convlist = paginator.get_page(page)
     context = {
-        
-        'convlist': convlist
+        'conv': obj
     }
     return render(request, "inicio.html", context)
 

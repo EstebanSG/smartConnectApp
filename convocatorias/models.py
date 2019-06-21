@@ -80,8 +80,8 @@ class Alumnos(models.Model):
      foto = models.ImageField(null=False, blank=True, upload_to = "fotos_usuarios")
      matricula = models.CharField(max_length = 100,null=False)
      carrera = models.CharField(max_length = 100,null=False)
-     #interes = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
-     #interes2 = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
+     interes = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
+     interes2 = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
      #correo = models.EmailField(default=None,null=True)
      #correo = tinymce_models.HTMLField()
 

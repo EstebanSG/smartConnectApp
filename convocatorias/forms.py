@@ -64,8 +64,8 @@ class AlumnosForm(forms.ModelForm):
     foto = forms.ImageField()
     matricula = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     carrera = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    #interes = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
-    #interes2 = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+    interes = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+    interes2 = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
 
 
     class Meta:
@@ -77,6 +77,6 @@ class AlumnosForm(forms.ModelForm):
             'foto',
             'matricula',
             'carrera',
-            #'interes',
-            #'interes2',
+            'interes',
+            'interes2',
         ]
