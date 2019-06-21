@@ -25,12 +25,12 @@ def listing(request):
 
 def index_view(request):
     obj = Convocatorias.objects.all()
-    paginator = Paginator(obj, 2)
+    paginator = Paginator(obj, 10)
 
     page = request.GET.get('page')
     convlist = paginator.get_page(page)
     context = {
-        
+
         'convlist': convlist
     }
     return render(request, "inicio.html", context)
