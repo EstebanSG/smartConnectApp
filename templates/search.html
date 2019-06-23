@@ -1,0 +1,6 @@
+{% for result in page.object_list %}
+           {{ result.object.nombre }}
+        {{ result.object.created_on }}
+        {% empty %}           
+             No results found.
+        {% endfor %}

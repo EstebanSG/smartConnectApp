@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'apps.convocatorias',
     'crispy_forms',
     #'daterangefilter',
@@ -138,3 +139,13 @@ LOGIN_EXEMPT_URLS = (
 
 )
 STATICFILES_DIRS = ( os.path.join('static'), )
+
+HAYSTACK_CONNECTIONS = {
+              'default': {
+                    'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+                    'URL': 'http://127.0.0.1:9200/',
+                    'INDEX_NAME': 'haystack_books',
+              },
+    }
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

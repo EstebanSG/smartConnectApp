@@ -41,6 +41,7 @@ from django.contrib.auth.views import (
 app_name = "convocatorias"
 urlpatterns = [
     path('inicio/', views.index_view, name='home'),
+    path('search/', views.search_view, include('haystack.urls')),
     path('admin/', admin.site.urls),
     #path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
     path('misconvocatorias/', views.misconvocatorias_view, name='misconvocatorias'),

@@ -15,14 +15,6 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-def listing(request):
-    contact_list = Contacts.objects.all()
-    paginator = Paginator(contact_list, 25) # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    contacts = paginator.get_page(page)
-    return render(request, 'list.html', {'contacts': contacts})
-
 def index_view(request):
     obj = Convocatorias.objects.all()
     paginator = Paginator(obj, 10)
@@ -35,13 +27,9 @@ def index_view(request):
     }
     return render(request, "inicio.html", context)
 
-def inicio_view(request):
-    obj = Convocatorias.objects.all()
-    form = ConvocatoriaForm(request.POST or None)
-    context = {
-        'conv': obj
-    }
-    return render(request, "inicio.html", context)
+def search_view(request):
+
+    return render(request, "search.html", {})
 
 def login_view(request, *args, **kwargs):
     return render(request, "index.html", {})
