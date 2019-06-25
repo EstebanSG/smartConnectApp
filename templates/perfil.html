@@ -148,14 +148,26 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 						</div>
 
-						<div class="col_full nobottommargin">
+						<div class="col_full">
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
 									<a><i class="icon-barcode"></i></a>
 								</div>
-								<h3>Matricula: </h3>
+								<h3>Matricula:</h3>
 								<strong>{{ user.alumnos.matricula }}</strong>
+							</div>
+
+						</div>
+
+						<div class="col_full nobottommargin">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a><i class="icon-diamond"></i></a>
+								</div>
+								<h3>Primer Interes:</h3>
+								<strong>{{ user.alumnos.interes }}</strong>
 							</div>
 
 						</div>
@@ -172,7 +184,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 										<a><i class="icon-user"></i></a>
 								</div>
 								<h3>Apellidos: </h3>
-								<strong>{{ user.alumnos.apellidop }} {{ user.alumnos.apellidom }}</strong>
+								<strong>{{ user.alumnos.apellidos }} </strong>
 							</div>
 
 						</div>
@@ -189,7 +201,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 						</div>
 
-						<div class="col_full nobottommargin">
+						<div class="col_full">
 
 							<div class="feature-box fbox-plain fbox-small fbox-dark">
 								<div class="fbox-icon">
@@ -197,6 +209,18 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 								</div>
 								<h3>Carrera:</h3>
 								<strong>{{ user.alumnos.carrera }}</strong>
+							</div>
+
+						</div>
+
+						<div class="col_full nobottommargin">
+
+							<div class="feature-box fbox-plain fbox-small fbox-dark">
+								<div class="fbox-icon">
+									<a><i class="icon-diamond"></i></a>
+								</div>
+								<h3>Segundo Interes:</h3>
+								<strong>{{ user.alumnos.interes2 }}</strong>
 							</div>
 
 						</div>

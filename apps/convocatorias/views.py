@@ -16,16 +16,21 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def index_view(request):
-    obj = Convocatorias.objects.all()
-    paginator = Paginator(obj, 10)
+    print("datooo : " , request.user.alumnos.matricula)
+    if request.user.alumnos.matricula == "":
+        return redirect('registro2')
+    else:
+        obj = Convocatorias.objects.all()
+        paginator = Paginator(obj, 10)
+        page = request.GET.get('page')
+        convlist = paginator.get_page(page)
+        context = {
+            'convlist': convlist
+        }
+        return render(request, "inicio.html", context)
 
-    page = request.GET.get('page')
-    convlist = paginator.get_page(page)
-    context = {
 
-        'convlist': convlist
-    }
-    return render(request, "inicio.html", context)
+    
 
 def search_view(request):
 
@@ -44,7 +49,6 @@ def registrarse_view(request):
         else:
             
             form = RegistroForm()
-         
             
             args = {
                 'form': form
@@ -53,9 +57,39 @@ def registrarse_view(request):
    
     else:
         form = RegistroForm()
-        args = {'form': form}
-
+        args = {
+                'form': form
+                }
     return render(request, 'newaccount.html',args)
+
+
+def registrarse2_view(request):
+    request.user.alumnos.nombre = request.user.first_name
+    request.user.alumnos.apellidos = request.user.last_name
+    
+    print("ID : ",request.user.id)
+    pk = request.user.id
+    if request.method == 'POST':
+        profile_form = AlumnosForm(request.POST, instance=request.user.alumnos)
+
+        if profile_form.is_valid():
+         
+            profile_form.save()
+            if pk:
+                datosUser = User.objects.get(pk=pk)
+            else:
+                datosUser = request.user
+            context = {
+                'user': datosUser
+                }
+            return render(request, 'inicio.html', context)
+    else:
+        form = EditProfileForm(instance=request.user)
+        profile_form = AlumnosForm(instance=request.user.alumnos)
+        args = {'form': form,'profile_form':profile_form}
+        return render(request, 'newaccount2.html', args)
+
+
     
 
 def perfil_view(request, pk=None):
@@ -70,7 +104,7 @@ def perfil_view(request, pk=None):
 
 def editarperfil_view(request, pk=None):
     if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
+        form = EditProfileForm(request.POST, request.FILES, instance=request.user)
         profile_form = AlumnosForm(request.POST, instance=request.user.alumnos)
 
         if form.is_valid() or profile_form.is_valid():

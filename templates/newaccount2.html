@@ -31,7 +31,7 @@
 	<!-- Document Title
 	============================================= -->
 	<title>Smartconnect</title>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 
     	function agree_term_cond(){
 
@@ -45,7 +45,7 @@
 	      }
 	    }
 
-  	</script>
+  	</script> -->
 
 </head>
 
@@ -111,20 +111,15 @@
 						<div class="panel panel-default divcenter noradius noborder" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
 							<div class="panel-body" style="padding: 40px;">
 								<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
-									<h3>Crear una nueva cuenta</h3>
+									<h3>Completa tus datos:</h3>
 
 									<div  class="col_full">
 										{% csrf_token %}
-										{{ form|crispy }}
+										{{ profile_form|crispy }}
 									</div>
 									<br>
-									<div class="form-group form-check">
-						          		<input type="checkbox" name="legal" class="form-check-input" id="checklegal" onclick="agree_term_cond()">
-						          		<label class="form-check-label" for="legal">Aceptar los <a class="loginhere-link" href="https://tec.mx/es/aviso-de-privacidad-para-participantes-y-expositores-congresos-y-simposiums">Terminos y Condiciones</a>
-						          		</label>
-						        	</div>
 									<div class="col_full nobottommargin">
-										<button disabled="true" type="submit" class="button button-3d button-black nomargin" id="btnsave" name="login-form-submit" value="login">Guardar</button>
+										<button  type="submit" class="button button-3d button-black nomargin" id="btnsave" name="login-form-submit" value="login">Guardar</button>
 										<input class="button button-3d button-black nomargin" type="button" onclick="location.href='/';" value="Cancelar" />
                   					</div>
 								</form>

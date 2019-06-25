@@ -54,29 +54,30 @@ class EditProfileForm(UserChangeForm):
             'last_name',
             'password'
         )
+        
 class AlumnosForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AlumnosForm, self).__init__(*args, **kwargs)
 
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    apellidop = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    apellidom = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    foto = forms.ImageField()
+    apellidos = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    #apellidom = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    #foto = forms.FileField()
     matricula = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     carrera = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    #interes = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
-    #interes2 = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+    interes = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
+    interes2 = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
 
 
     class Meta:
         model = Alumnos
         fields =[
             'nombre',
-            'apellidop',
-            'apellidom',
-            'foto',
+            'apellidos',
+            #'apellidom',
+            #'foto',
             'matricula',
             'carrera',
-            #'interes',
-            #'interes2',
+            'interes',
+            'interes2',
         ]

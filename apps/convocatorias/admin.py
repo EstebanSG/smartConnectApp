@@ -11,7 +11,7 @@ from .models import *
 
 # Register your models here.
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('nombre','apellidop','apellidom','matricula','carrera','foto')
+    list_display = ('nombre','apellidos','matricula','carrera','foto', 'interes', 'interes2')
     list_filter  = ('matricula','carrera')
 
     def user_info(self, obj):

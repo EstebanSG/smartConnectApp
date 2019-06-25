@@ -46,6 +46,7 @@ urlpatterns = [
     #path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
     path('misconvocatorias/', views.misconvocatorias_view, name='misconvocatorias'),
     path('registro/', views.registrarse_view, name='registro'),
+    path('cregistro/', views.registrarse2_view, name='registro2'),
     path('perfil/', views.perfil_view, name='perfil'),
     path('editar/', views.editarperfil_view, name='editarperfil'),
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('login')), name='logout'),

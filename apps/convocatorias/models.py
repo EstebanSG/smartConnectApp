@@ -75,13 +75,13 @@ class Alumnos(models.Model):
 
      id = models.AutoField(primary_key=True)
      nombre = models.CharField(max_length = 100,null=False)
-     apellidop = models.CharField(max_length = 200,null=False)
-     apellidom = models.CharField(max_length = 200,null=False)
-     foto = models.ImageField(null=False, blank=True, upload_to = "fotos_usuarios")
+     apellidos = models.CharField(max_length = 200,null=False)
+     #apellidom = models.CharField(max_length = 200,null=False)
+     foto = models.FileField(null=True, blank=True, default ='static/images/team/1.jpg', upload_to = "fotos_usuarios")
      matricula = models.CharField(max_length = 100,null=False)
      carrera = models.CharField(max_length = 100,null=False)
-     #interes = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
-     #interes2 = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None)
+     interes = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None, blank= True, null=True)
+     interes2 = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None, blank= True, null=True)
      #correo = models.EmailField(default=None,null=True)
      #correo = tinymce_models.HTMLField()
 
