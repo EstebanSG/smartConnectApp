@@ -1,1 +1,4 @@
 {{ object.nombre }}
+    {% for a in convocatorias%}
+        {{ a }}
+    {% endfor %}

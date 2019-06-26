@@ -68,6 +68,8 @@ class Alumnos(models.Model):
      ,('Ética y Sociedad','Ética y Sociedad'),('Salud y Belleza','Salud y Belleza'),('Tecnología','Tecnología'),('Artes y Cultura','Artes y Cultura')
      ,('Idiomas','Idiomas'),('Negocios','Negocios'),)
 
+     SEXO_CHOICES=(('H','Hombre,'),('M','Mujer'),)
+
      on_delete=models.DO_NOTHING
      user = models.OneToOneField(User,on_delete=models.CASCADE,null=True, blank=True)
 
@@ -77,7 +79,8 @@ class Alumnos(models.Model):
      nombre = models.CharField(max_length = 100,null=False)
      apellidos = models.CharField(max_length = 200,null=False)
      #apellidom = models.CharField(max_length = 200,null=False)
-     foto = models.FileField(null=True, blank=True, default ='static/images/team/1.jpg', upload_to = "fotos_usuarios")
+     sexo = models.CharField(max_length = 20, choices=SEXO_CHOICES, default=None, null=True, blank=True)
+     foto = models.ImageField(null=True, blank=True, default ='static/fotos_users/user_I.png', upload_to = "fotos_usuarios/")
      matricula = models.CharField(max_length = 100,null=False)
      carrera = models.CharField(max_length = 100,null=False)
      interes = models.CharField(max_length = 200,choices=CATEGORIA_CHOICES,default=None, blank= True, null=True)

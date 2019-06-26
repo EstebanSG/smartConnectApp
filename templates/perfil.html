@@ -115,10 +115,15 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 				<div class="row">
 
 					<div class="col-md-4 bottommargin">
-							{%if user.alumnos.foto.url%}
-							<img data-animate="fadeInLeftBig" src="{{user.alumnos.foto.url}}" alt="iPhone" class="center-block">
+							
+							{% if user.alumnos.sexo == "M" %}
+
+							<img data-animate="fadeInLeftBig" src="{% static 'fotos_users/user_M.png' %}" alt="iPhone" class="center-block">
+							
 							{% else %}
-							<img data-animate="fadeInLeftBig" src="{% static 'images/team/1.jpg' %}" alt="iPhone" class="center-block">
+							
+							<img data-animate="fadeInLeftBig" src="{% static 'fotos_users/user_H.png' %}" alt="iPhone" class="center-block">
+							
 							{% endif %}
 					</div>
 

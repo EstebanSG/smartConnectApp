@@ -88,44 +88,26 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 			</div>
 
 		</section><!-- #page-title end -->
-			<!--
+			
 		<br>
 		<br>
 	<div class="container container-fluid">
 	<div class="row">
-		<div class="col-sm-8 col-md-8 col-lg-8">
-			<div class="dropdown">
-  				<button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    			Categorías
-  				</button>
-  			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			    <button class="btn btn-primary" href="#">Todas</button>
-			    <button class="btn btn-primary" type="button">Ingeniería</button>
-			    <button class="btn btn-primary" type="button">Ciencias</button>
-			    <button class="btn btn-primary" type="button">Energía y Recursos</button>
-			    <button class="btn btn-primary" type="button">Ética y Sociedad</button>
-			    <button class="btn btn-primary" type="button">Salud y Belleza</abutton>
-			    <button class="btn btn-primary" type="button">Tecnología</button>
-			    <button class="btn btn-primary" type="button">Arte y Cultura</button>
-			    <button class="btn btn-primary" type="button">Idiomas</button>
-			    <button class="btn btn-primary" type="button">Negocios</button>
-  			</div>
-			</div>
-		</div>
-	
+
 		<div class="col-sm-4 col-md-4 col-lg-4">
-			<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search">
-					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
+			<form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+					<input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search" value="{{request.GET.q}}">
+					<input class="btn btn-outline-warning my-2 my-sm-0" type="submit" value="{{request.GET.q}}">Buscar</input>
 			</form>
 		</div>
 	</div>
-	</div>--->
+	</div>
 
-	<form action="/search" method="get">
-        <input name="q" type="text" />
+	<!-- <form method="GET" action="{% url 'search' %}">
+        <input name="q" type="text" value="{{request.GET.q}}" />
         <input type="submit" />
-	</form>
+	</form>  -->
+	
 	
 	<!-- Content
 		============================================= -->
@@ -161,7 +143,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 								</ul>
 								<div class="entry-content">
 									<p style="color:black;">{{cv.informacion}}</p>
-									<a href="'{{cv.link}}'" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-line-arrow-right"></i><span>Ir al sitio</span></a>
+									<a href="{{cv.link}}" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-line-arrow-right"></i><span>Ir al sitio</span></a>
 									<a onclick="window.location.href='{% url 'agregarConvocatoriaCliente' pk=cv.id %}'" class="button button-rounded button-reveal button-large button-blue"><i class="icon-folder-open"></i><span>Guardar</span></a>
 									
 								</div>

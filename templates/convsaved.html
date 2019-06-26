@@ -124,9 +124,9 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 									</ul>
 									<div class="entry-content">
 										<p style="color:black;">{{cv.informacion}}</p>
-										<a href="'{{cv.link}}'" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-line-arrow-right"></i><span>Ir al sitio</span></a>
-										
-									</div>
+										<a href="{{cv.link}}" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-line-arrow-right"></i><span>Ir al sitio</span></a>
+										<a onclick="window.location.href='{% url 'eliminarConvocatoriaCliente' pk=cv.id %}'" class="button button-rounded button-reveal button-large button-blue"><i class="icon-folder-open"></i><span>Eliminar</span></a>
+									</div> 
 								</div>
 							</div>
 							{% endfor %}

@@ -17,3 +17,5 @@ ARTES_CULTURA_CHOICES=(('Ninguna','Ninguna'),('Teatro','Teatro'),('Danza','Danza
 IDIOMAS_CHOICES=(('Ninguna','Ninguna'),('Internacionales','Internacionales'),('Nacionales','Nacionales'),)
      
 NEGOCIOS_CHOICES=(('Ninguna','Ninguna'),('Finanzas','Finanzas'),('Comercio','Comercio'),('Économia','Économia'),('Creación de empresas','Creación de empresas'),)
+
+SEXO_CHOICES=(('H','Hombre,'),('M','Mujer'),)

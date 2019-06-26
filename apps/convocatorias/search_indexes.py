@@ -7,7 +7,7 @@ class BookIndex(indexes.SearchIndex, indexes.Indexable):
     # informacion = indexes.CharField(model_attr='informacion')
     # duracion = indexes.CharField(model_attr='duracion')
     #Categoria = indexes.CharField(model_attr='Categoria')
-    #convocatorias = indexes.CharField()
+    convocatorias = indexes.CharField()
 
     def get_model(self):
             return Convocatorias

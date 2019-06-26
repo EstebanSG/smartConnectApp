@@ -12,6 +12,7 @@ from django.urls import reverse_lazy
 from django.core.mail import send_mail
 from django.template.loader import get_template
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 # Create your views here.
 
@@ -33,8 +34,15 @@ def index_view(request):
     
 
 def search_view(request):
-
-    return render(request, "search.html", {})
+    template = "inicio.html"
+    query = request.GET.get('q')
+    results = Convocatorias.objects.filter(Q(Categoria__icontains=query))
+    #page = pagination(request, result, num=1)
+    print("Este es: ", results)
+    context ={
+        'items': results
+    }
+    return render(request, "search.html", context)
 
 def login_view(request, *args, **kwargs):
     return render(request, "index.html", {})
@@ -82,7 +90,7 @@ def registrarse2_view(request):
             context = {
                 'user': datosUser
                 }
-            return render(request, 'inicio.html', context)
+            return redirect('home')
     else:
         form = EditProfileForm(instance=request.user)
         profile_form = AlumnosForm(instance=request.user.alumnos)
@@ -105,20 +113,23 @@ def perfil_view(request, pk=None):
 def editarperfil_view(request, pk=None):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, request.FILES, instance=request.user)
-        profile_form = AlumnosForm(request.POST, instance=request.user.alumnos)
+        profile_form = AlumnosForm(request.POST, instance = request.user.alumnos)
 
-        if form.is_valid() or profile_form.is_valid():
+        if form.is_valid() and profile_form.is_valid():
          
             form.save()
             profile_form.save()
-            if pk:
-                datosUser = User.objects.get(pk=pk)
-            else:
-                datosUser = request.user
-            context = {
-                'user': datosUser
-                }
-            return render(request, 'perfil.html', context)
+
+            # if pk:
+            #     datosUser = User.objects.get(pk=pk)
+            # else:
+            #     datosUser = request.user
+            
+            # context = {
+            #     'user': datosUser
+            #     }
+            # return render(request, 'perfil.html', context)
+            return redirect('perfil')
     else:
         form = EditProfileForm(instance=request.user)
         profile_form = AlumnosForm(instance=request.user.alumnos)
@@ -136,14 +147,9 @@ def eliminarConvocatoriaCliente(request, pk=None):
     
         #user = User.objects.get(pku=pku)  
         #context = {'eventosss':eventosss}
-    request.user.alumnos.convocatorias.delete(convocatoria.id)
-    print("-----------------------ESTA COSITA-----------------------------")
+    request.user.alumnos.convocatorias.remove(convocatoria.id)
+    print("-----------------------Este es eliminar-----------------------------")
    
-    print("-----------------------ESTA COSITA-----------------------------")
-    
-    
-
-        
         
         #User.empresa.add(eventosss)
         #User.clientes.save()
@@ -161,9 +167,9 @@ def agregarConvocatoriaCliente(request, pk=None):
         #user = User.objects.get(pku=pku)  
         #context = {'eventosss':eventosss}
     request.user.alumnos.convocatorias.add(convocatoria.id)
-    print("-----------------------ESTA COSITA1-----------------------------")
+    print("-----------------------Este es agregar-----------------------------")
    
-    print("-----------------------ESTA COSITA1-----------------------------")
+  
     
     
 

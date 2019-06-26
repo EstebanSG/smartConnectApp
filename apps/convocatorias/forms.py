@@ -50,9 +50,10 @@ class EditProfileForm(UserChangeForm):
         model = User
         fields = (
             'email',
-            'first_name',
-            'last_name',
-            'password'
+            'username',
+            #'first_name',
+            #'last_name',
+            #'password'
         )
         
 class AlumnosForm(forms.ModelForm):
@@ -62,8 +63,9 @@ class AlumnosForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     apellidos = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     #apellidom = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    #foto = forms.FileField()
+    foto = forms.ImageField()
     matricula = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    sexo = forms.ChoiceField(choices = SEXO_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
     carrera = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     interes = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
     interes2 = forms.ChoiceField(choices = CATEGORIA_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
@@ -74,9 +76,9 @@ class AlumnosForm(forms.ModelForm):
         fields =[
             'nombre',
             'apellidos',
-            #'apellidom',
-            #'foto',
+            'foto',
             'matricula',
+            'sexo',
             'carrera',
             'interes',
             'interes2',

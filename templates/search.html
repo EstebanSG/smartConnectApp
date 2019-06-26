@@ -1,6 +1,6 @@
-{% for result in page.object_list %}
-           {{ result.object.nombre }}
-        {{ result.object.created_on }}
-        {% empty %}           
-             No results found.
-        {% endfor %}
+{% for result in items %}
+{{ result.Categoria }}-----------
+
+{% empty %}           
+No results found.
+{% endfor %}

@@ -114,9 +114,10 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 <br>
 <br>
 <div class="container">
-  <form method="post" enctype="multipart/form-data">
+  <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
 	  {{profile_form|crispy}}
+	  {{form|crispy}}
 	  <br>
 	  <button type="submit" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-refresh"></i><span>Actualizar</span></button>
 	  <button onclick="window.location.href='/perfil'" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-remove"></i><span>Cancelar</span></button>

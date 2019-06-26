@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from apps.convocatorias import views
 from django.conf.urls import url, include
-from django.contrib import admin
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -38,12 +37,12 @@ from django.contrib.auth.views import (
     PasswordResetConfirmView,
     PasswordResetCompleteView
 )
+#include('haystack.urls')
 app_name = "convocatorias"
 urlpatterns = [
     path('inicio/', views.index_view, name='home'),
-    path('search/', views.search_view, include('haystack.urls')),
+    path('result/', views.search_view, name='search'),
     path('admin/', admin.site.urls),
-    #path('misconvocatorias/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
     path('misconvocatorias/', views.misconvocatorias_view, name='misconvocatorias'),
     path('registro/', views.registrarse_view, name='registro'),
     path('cregistro/', views.registrarse2_view, name='registro2'),
@@ -52,4 +51,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page=reverse_lazy('login')), name='logout'),
     path('', LoginView.as_view(template_name='index.html'), name='login'),
     path('misconvocatorias/(?P<pk>\d+)/', views.agregarConvocatoriaCliente, name="agregarConvocatoriaCliente"),
-]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    path('misconvocatoriasn/(?P<pk>\d+)/', views.eliminarConvocatoriaCliente, name='eliminarConvocatoriaCliente'),
+] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
