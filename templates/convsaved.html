@@ -37,7 +37,6 @@
 
 <body class="stretched">
 {% if user.is_authenticated %}
-HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -55,8 +54,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="/" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
-						<a href="/" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
@@ -64,10 +63,10 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 					<nav id="primary-menu">
 
 						<ul>
-							<li class="current"><a href="/misconvocatorias"><div>Mis Convocatorias</div></a></li>
-							<li><a href="/inicio"><div>Inicio</div></a></li>
-							<li><a href="/perfil"><div>Perfil</div></a></li>
-							<li><a href="/logout"><div>Cerrar Sesión</div></a></li>
+								<li class="current"><a href="/inicio"><div>Inicio</div></a></li>
+								<li><a href="/misconvocatorias"><div>Mis Convocatorias</div></a></li>
+								<li><a href="/perfil"><div>Perfil</div></a></li>
+								<li><a href="/logout"><div>Cerrar Sesión</div></a></li>
 						</ul>
 
 					</nav><!-- #primary-menu end -->
@@ -107,7 +106,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 										<iframe  alt="Inventore voluptates velit totam ipsa tenetur" width='400' height='300' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
 										{% else %}
 								
-										<img class="alignright notopmargin fadeIn animated" src="{% static 'images/events/thumbs/1.jpg' %}" alt="Inventore voluptates velit totam ipsa tenetur">
+										<img class="alignright notopmargin fadeIn animated" src="{% static 'defaults_imgs/1.jpg' %}" alt="Inventore voluptates velit totam ipsa tenetur">
 										
 										{% endif %}
 										<div class="entry-date"><span>{{cv.duracion}}</span></div>
@@ -125,7 +124,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 									<div class="entry-content">
 										<p style="color:black;">{{cv.informacion}}</p>
 										<a href="{{cv.link}}" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-line-arrow-right"></i><span>Ir al sitio</span></a>
-										<a onclick="window.location.href='{% url 'eliminarConvocatoriaCliente' pk=cv.id %}'" class="button button-rounded button-reveal button-large button-blue"><i class="icon-folder-open"></i><span>Eliminar</span></a>
+										<a onclick="window.location.href='{% url 'eliminarConvocatoriaCliente' pk=cv.id %}'" class="button button-rounded button-reveal button-large button-blue"><i class="icon-trash2"></i><span>Eliminar</span></a>
 									</div> 
 								</div>
 							</div>
@@ -156,7 +155,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<img style="height: 50%; width: 50%;" src="{% static 'img/HorizontalPrimario Blanco.png' %}" alt="" class="alignleft" style="margin-top: 8px; padding-right: 18px; border-right: 1px solid #4A4A4A;">
 
-							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, Presidente del Tecnológico de Monterrey.  </p>
+							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, presidente del Tecnológico de Monterrey.  </p>
 
 							<div class="line" style="margin: 30px 0;"></div>
 						</div>
@@ -189,31 +188,10 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 				<div class="container clearfix">
 
 					<div class="col_half">
-						<div class="copyrights-menu copyright-links clearfix">
-							<a href="/inicio">Inicio</a>/<a href="/perfil">Perfil</a>/<a href="/misconvocatorias">Mis Convocatorias</a>/<a href="/logout">Cerrar Sesión</a>
-						</div>
-						Copyrights &copy; 2014 All Rights Reserved by Smartconnect.
-					</div>
-
-					<div class="col_half col_last tright">
-						<div class="fright clearfix">
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
-								<i class="icon-gplus"></i>
-								<i class="icon-gplus"></i>
-							</a>
-						</div>
 						
+						Copyrights &copy; 2019 All Rights Reserved by Smartconnect.
 					</div>
+
 					
 				</div>
 
@@ -232,8 +210,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 	============================================= -->
 	<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>

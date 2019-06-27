@@ -37,7 +37,6 @@
 
 <body class="stretched">
 {% if user.is_authenticated %}
-HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -55,8 +54,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="/" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
-						<a href="/" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
@@ -64,10 +63,10 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 					<nav id="primary-menu">
 
 						<ul>
-							<li class="current"><a href="/perfil"><div>Perfil</div></a></li>
-							<li><a href="/inicio"><div>Inicio</div></a></li>
-							<li><a href="/misconvocatorias"><div>Mis Convocatorias</div></a></li>
-							<li><a href="/logout"><div>Cerrar Sesión</div></a></li>
+								<li class="current"><a href="/inicio"><div>Inicio</div></a></li>
+								<li><a href="/misconvocatorias"><div>Mis Convocatorias</div></a></li>
+								<li><a href="/perfil"><div>Perfil</div></a></li>
+								<li><a href="/logout"><div>Cerrar Sesión</div></a></li>
 						</ul>
 
 					</nav><!-- #primary-menu end -->
@@ -87,32 +86,20 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 			<div class="col-sm-4 bottommargin">
 				<div class="team">
 					<div class="team-image">
-						{%if user.alumnos.foto.url%}
-						<img src="{{user.alumnos.foto.url}}">
+						{% if user.alumnos.sexo == "M" %}
+						<img src="{% static 'fotos_users/user_M.png' %}">
 						{% else %}
-						<img src="{% static 'images/team/1.jpg' %}">
+						<img src="{% static 'fotos_users/user_H.png' %}">
 						{% endif %}
 					</div>
 				</div>
 			</div>
 		</div>
-			<!-- Portfolio Single Image
-					============================================= -->
-			<!-- <div class="col_two_third portfolio-single-image nobottommargin col_last">
-				<img src="{{user.alumnos.foto.url}}" alt=""> -->
-			<!-- .portfolio-single-image end -->
-			<!-- <div style="height: 250px; width: 250px">
-				<img class="figure-img img-fluid bg-dark rounded" src="{{user.alumnos.foto.url}}" alt="Responsive image">
-			</div> -->
+
 		</div>
   </div>
   
-  <div class="row">
-  </div>
-</div>
 
-<br>
-<br>
 <div class="container">
   <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
@@ -126,9 +113,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 </div>
 
 {% endif %}
-		<br>
-		<br>
-		<br>
+		
 <!-- Footer
 		============================================= -->
 		<footer id="footer" class="dark" style="background: url('{% static 'images/footer-bg.jpg' %}') repeat fixed; background-size: 100% 100%;">
@@ -145,7 +130,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<img style="height: 50%; width: 50%;" src="{% static 'img/HorizontalPrimario Blanco.png' %}" alt="" class="alignleft" style="margin-top: 8px; padding-right: 18px; border-right: 1px solid #4A4A4A;">
 
-							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, Presidente del Tecnológico de Monterrey.  </p>
+							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, presidente del Tecnológico de Monterrey.  </p>
 
 							<div class="line" style="margin: 30px 0;"></div>
 						</div>
@@ -178,31 +163,10 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 				<div class="container clearfix">
 
 					<div class="col_half">
-						<div class="copyrights-menu copyright-links clearfix">
-							<a href="/inicio">Inicio</a>/<a href="/perfil">Perfil</a>/<a href="/misconvocatorias">Mis Convocatorias</a>/<a href="/logout">Cerrar Sesión</a>
-						</div>
-						Copyrights &copy; 2014 All Rights Reserved by Smartconnect.
-					</div>
-
-					<div class="col_half col_last tright">
-						<div class="fright clearfix">
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
-								<i class="icon-gplus"></i>
-								<i class="icon-gplus"></i>
-							</a>
-						</div>
 						
+						Copyrights &copy; 2019 All Rights Reserved by Smartconnect.
 					</div>
+
 					
 				</div>
 
@@ -223,26 +187,6 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script type="text/javascript">
-	  const readFileBtn = document.getElementById("idfile");
-	  const btnFile = document.getElementById("idbtnfile");
-	  const txtbtnfile = document.getElementById("textbtnfile");
-	  
-
-	  btnFile.addEventListener("click", function(){
-	     readFileBtn.click(); 
-
-	  })
-
-	  readFileBtn.addEventListener("change", function(){
-	    if (readFileBtn.value){
-	      txtbtnfile.innerHTML = readFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
-	    } else{
-	      txtbtnfile.innerHTML = "no file chosen, yet.";
-	    }
-	  })
-
-</script>
 
 </body>
 </html>

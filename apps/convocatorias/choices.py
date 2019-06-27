@@ -18,4 +18,4 @@ IDIOMAS_CHOICES=(('Ninguna','Ninguna'),('Internacionales','Internacionales'),('N
      
 NEGOCIOS_CHOICES=(('Ninguna','Ninguna'),('Finanzas','Finanzas'),('Comercio','Comercio'),('Économia','Économia'),('Creación de empresas','Creación de empresas'),)
 
-SEXO_CHOICES=(('H','Hombre,'),('M','Mujer'),)
+SEXO_CHOICES=(('H','Hombre'),('M','Mujer'),)

@@ -37,7 +37,6 @@
 
 <body class="stretched">
 {% if user.is_authenticated %}
-HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 	<!-- Document Wrapper
 	============================================= -->
@@ -55,8 +54,8 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 					<!-- Logo
 					============================================= -->
 					<div id="logo">
-						<a href="/" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
-						<a href="/" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
 					</div><!-- #logo end -->
 
 					<!-- Primary Navigation
@@ -83,7 +82,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 			<div class="container clearfix">
 				<h1>Convocatorias</h1>
-				<span>Convocatorias recientes</span>
+				<span>Nuevas Convocatorias</span>
 				
 			</div>
 
@@ -94,10 +93,34 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 	<div class="container container-fluid">
 	<div class="row">
 
+			<div class="col-sm-8 col-md-8 col-lg-8">
+					<div class="btn-group">
+
+                              <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Ordenar por Categoría  <span class="caret"></span></button>
+
+                              <ul class="dropdown-menu" role="menu">
+                                   <form method="GET" action="{% url 'search' %}">
+                                        
+                                        <li><button name="q" type="submit" class="button button-3d button-rounded button-white button-light"><i class="icon-puzzle"></i>Todas</button></li>
+                                        <li><button name="q" type="submit" value="Ingenieria" class="button button-3d button-rounded button-white button-light"><i class="icon-wrench"></i>Ingeniería</button></li>
+                                        <li><button name="q" type="submit" value="Ciencias" class="button button-3d button-rounded button-white button-light"><i class="icon-beaker"></i>Ciencias</button></li>
+                                        <li><button name="q" type="submit" value="Energia y Recursos" class="button button-3d button-rounded button-white button-light"><i class="icon-globe"></i>Energía y Recursos</button></li>
+                                        <li><button name="q" type="submit" value="Etica y Sociedad" class="button button-3d button-rounded button-white button-light"><i class="icon-user"></i>Ética y Sociedad</button></li>
+                                        <li><button name="q" type="submit" value="Salud y Belleza" class="button button-3d button-rounded button-white button-light"><i class="icon-tint"></i>Salud y Belleza</button></li>
+                                        <li><button name="q" type="submit" value="Tecnologia" class="button button-3d button-rounded button-white button-light"><i class="icon-laptop"></i>Tecnología</button></li>
+                                        <li><button name="q" type="submit" value="Arte y Cultura" class="button button-3d button-rounded button-white button-light"><i class="icon-film"></i>Arte y Cultura</button></li>
+                                        <li><button name="q" type="submit" value="Idiomas" class="button button-3d button-rounded button-white button-light"><i class="icon-comments"></i>Idiomas</button></li>
+                                        <li><button name="q" type="submit" value="Negocios" class="button button-3d button-rounded button-white button-light"><i class="icon-briefcase"></i>Negocios</button></li>
+                                        
+                                   </form>
+                              </ul>  
+					</div>
+			</div>
+
 		<div class="col-sm-4 col-md-4 col-lg-4">
 			<form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
 					<input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search" value="{{request.GET.q}}">
-					<input class="btn btn-outline-warning my-2 my-sm-0" type="submit" value="{{request.GET.q}}">Buscar</input>
+					<button class="button button-3d button-rounded button-blue" type="submit"><i class="icon-filter"></i>Buscar</button>
 			</form>
 		</div>
 	</div>
@@ -126,7 +149,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 										<iframe alt="Inventore voluptates velit totam ipsa tenetur" width='400' height='300' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
 									{% else %}
 									
-									<img class="alignright notopmargin fadeIn animated" src="{% static 'images/events/thumbs/1.jpg' %}" alt="Inventore voluptates velit totam ipsa tenetur">
+									<img class="alignright notopmargin fadeIn animated" src="{% static 'defaults_imgs/1.jpg' %}" alt="Inventore voluptates velit totam ipsa tenetur">
 									
 									{% endif %}
 									<div class="entry-date"><span>{{cv.duracion}}</span></div>
@@ -198,7 +221,7 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 
 							<img style="height: 50%; width: 50%;" src="{% static 'img/HorizontalPrimario Blanco.png' %}" alt="" class="alignleft" style="margin-top: 8px; padding-right: 18px; border-right: 1px solid #4A4A4A;">
 
-							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, Presidente del Tecnológico de Monterrey.  </p>
+							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, presidente del Tecnológico de Monterrey.  </p>
 
 							<div class="line" style="margin: 30px 0;"></div>
 						</div>
@@ -231,31 +254,10 @@ HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
 				<div class="container clearfix">
 
 					<div class="col_half">
-						<div class="copyrights-menu copyright-links clearfix">
-							<a href="/inicio">Inicio</a>/<a href="/perfil">Perfil</a>/<a href="/misconvocatorias">Mis Convocatorias</a>/<a href="/logout">Cerrar Sesión</a>
-						</div>
-						Copyrights &copy; 2014 All Rights Reserved by Smartconnect.
-					</div>
-
-					<div class="col_half col_last tright">
-						<div class="fright clearfix">
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
-
-							<a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
-								<i class="icon-gplus"></i>
-								<i class="icon-gplus"></i>
-							</a>
-						</div>
 						
+						Copyrights &copy; 2019 All Rights Reserved by Smartconnect.
 					</div>
+
 					
 				</div>
 

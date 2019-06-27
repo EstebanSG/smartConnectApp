@@ -63,7 +63,7 @@ class AlumnosForm(forms.ModelForm):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     apellidos = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     #apellidom = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    foto = forms.ImageField()
+    #foto = forms.ImageField()
     matricula = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     sexo = forms.ChoiceField(choices = SEXO_CHOICES, widget=forms.Select(attrs={'class':'form-control'}))
     carrera = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -76,7 +76,7 @@ class AlumnosForm(forms.ModelForm):
         fields =[
             'nombre',
             'apellidos',
-            'foto',
+            #'foto',
             'matricula',
             'sexo',
             'carrera',

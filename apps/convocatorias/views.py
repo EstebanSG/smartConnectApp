@@ -36,11 +36,19 @@ def index_view(request):
 def search_view(request):
     template = "inicio.html"
     query = request.GET.get('q')
-    results = Convocatorias.objects.filter(Q(Categoria__icontains=query))
+    if query:
+        resp = Convocatorias.objects.filter(Q(nombre__icontains=query) | Q(Categoria__icontains=query) | Q(informacion__icontains=query) | Q(duracion__icontains=query) | Q(Ingenieria__icontains=query))
+    else:
+        resp = Convocatorias.objects.all()
+
     #page = pagination(request, result, num=1)
-    print("Este es: ", results)
+    print("Este es: ", resp)
+    paginator = Paginator(resp, 10)
+    page = request.GET.get('page')
+    results = paginator.get_page(page)
     context ={
-        'items': results
+        'items': results,
+        'query': query
     }
     return render(request, "search.html", context)
 

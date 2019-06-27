@@ -95,7 +95,7 @@
 
 			<div class="content-wrap nopadding">
 
-				<div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: center center no-repeat; background-size: cover;"><video src="{% static 'videos/gente.mp4' %}" type="video/mp4" autoplay loop></video></div>
+				<div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: center center no-repeat; background-size: cover;"><video src="{% static 'videos/gente.mp4' %}" type="video/mp4" autoplay loop muted></video></div>
         <br>
 				<div class="section nobg full-screen nopadding nomargin">
             <br>
@@ -111,7 +111,7 @@
 						<div class="panel panel-default divcenter noradius noborder" style="max-width: 400px; background-color: rgba(255,255,255,0.93);">
 							<div class="panel-body" style="padding: 40px;">
 								<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
-									<h3>Completa tus datos:</h3>
+									<h3>Verifica tu información</h3>
 
 									<div  class="col_full">
 										{% csrf_token %}
@@ -119,7 +119,7 @@
 									</div>
 									<br>
 									<div class="col_full nobottommargin">
-										<button  type="submit" class="button button-3d button-black nomargin" id="btnsave" name="login-form-submit" value="login">Guardar</button>
+										<button  type="submit" class="button button-3d button-black nomargin" id="btnsave" name="login-form-submit" value="login">Aceptar</button>
 										<input class="button button-3d button-black nomargin" type="button" onclick="location.href='/';" value="Cancelar" />
                   					</div>
 								</form>
@@ -127,7 +127,7 @@
 								<div  class="line line-sm"></div>
 
 								<div class="row justify-content-md-center">
-									<p style="padding-left: 20%" class="loginhere">¿Ya tienes cuenta? <a href="/registro" class="loginhere-link"> Inicia sesion aquí</a></p></div>
+									<p style="padding-left: 20%" class="loginhere">¿Ya tienes cuenta? <a href="/registro" class="loginhere-link"> Inicia sesión aquí</a></p></div>
 							</div>
             		</div>
             <br>

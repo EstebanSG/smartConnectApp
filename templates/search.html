@@ -1,6 +1,288 @@
-{% for result in items %}
-{{ result.Categoria }}-----------
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html dir="ltr" lang="es-MX">
+<head>
 
-{% empty %}           
-No results found.
-{% endfor %}
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Stylesheets
+	============================================= -->
+
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/responsive.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'modal.css' %}" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+
+	<!-- Document Title
+	============================================= -->
+	<title>Smartconnect</title>
+
+</head>
+
+<body class="stretched">
+{% if user.is_authenticated %}
+HOLA ESTOY AUTENTICADO Y SOY {{user.username}}
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+		<!-- Header
+		============================================= -->
+		<header id="header" class="full-header dark">
+
+			<div id="header-wrap">
+
+				<div class="container clearfix">
+
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="/inicio" class="standard-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+						<a href="/inicio" class="retina-logo" data-dark-logo="{% static 'img/LogoTec.png' %}"><img src="{% static 'img/LogoTec.png' %}" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu">
+
+						<ul>
+                                        <li class="current"><a href="/inicio"><div>Inicio</div></a></li>
+                                        <li><a href="/misconvocatorias"><div>Mis Convocatorias</div></a></li>
+                                        <li><a href="/perfil"><div>Perfil</div></a></li>
+                                        <li><a href="/logout"><div>Cerrar Sesión</div></a></li>
+						</ul>
+
+					</nav><!-- #primary-menu end -->
+
+				</div>
+
+			</div>
+
+		</header><!-- #header end -->
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix">
+				<h1>Convocatorias</h1>
+				<span>Convocatorias encontradas</span>
+				
+			</div>
+
+		</section><!-- #page-title end -->
+			
+		<br>
+		<br>
+	<div class="container container-fluid">
+	<div class="row">
+               <div class="col-sm-8 col-md-8 col-lg-8">
+					<div class="btn-group">
+
+                              <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                              Categorías <span class="caret"></span></button>
+
+                              <ul class="dropdown-menu" role="menu">
+                                   <form method="GET" action="{% url 'search' %}">
+                                        
+										<li><button name="q" type="submit" class="button button-3d button-rounded button-white button-light"><i class="icon-puzzle"></i>Todas</button></li>
+                                        <li><button name="q" type="submit" value="Ingenieria" class="button button-3d button-rounded button-white button-light"><i class="icon-wrench"></i>Ingeniería</button></li>
+                                        <li><button name="q" type="submit" value="Ciencias" class="button button-3d button-rounded button-white button-light"><i class="icon-beaker"></i>Ciencias</button></li>
+                                        <li><button name="q" type="submit" value="Energia y Recursos" class="button button-3d button-rounded button-white button-light"><i class="icon-globe"></i>Energía y Recursos</button></li>
+                                        <li><button name="q" type="submit" value="Etica y Sociedad" class="button button-3d button-rounded button-white button-light"><i class="icon-user"></i>Ética y Sociedad</button></li>
+                                        <li><button name="q" type="submit" value="Salud y Belleza" class="button button-3d button-rounded button-white button-light"><i class="icon-tint"></i>Salud y Belleza</button></li>
+                                        <li><button name="q" type="submit" value="Tecnologia" class="button button-3d button-rounded button-white button-light"><i class="icon-laptop"></i>Tecnología</button></li>
+                                        <li><button name="q" type="submit" value="Arte y Cultura" class="button button-3d button-rounded button-white button-light"><i class="icon-film"></i>Arte y Cultura</button></li>
+                                        <li><button name="q" type="submit" value="Idiomas" class="button button-3d button-rounded button-white button-light"><i class="icon-comments"></i>Idiomas</button></li>
+                                        <li><button name="q" type="submit" value="Negocios" class="button button-3d button-rounded button-white button-light"><i class="icon-briefcase"></i>Negocios</button></li>
+                                        
+                                   </form>
+                              </ul>  
+					</div>
+			</div>
+
+		<div class="col-sm-4 col-md-4 col-lg-4">
+			<form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+					<input name="q" class="form-control mr-sm-2" type="search" placeholder="Buscar.." aria-label="Search" value="{{request.GET.q}}">
+					<button class="button button-3d button-rounded button-blue" type="submit"><i class="icon-filter"></i>Buscar</button>
+			</form>
+		</div>
+	</div>
+	</div>
+
+	<!-- <form method="GET" action="{% url 'search' %}">
+        <input name="q" type="text" value="{{request.GET.q}}" />
+        <input type="submit" />
+	</form>  -->
+	
+	
+	<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix" >
+
+					<div id="posts" class="events small-thumbs">
+						{% for cv in items %}
+						<div class="entry clearfix "  data-animate="fadeInLeft">
+							<div class="entry-image">
+								<a >
+									{% if cv.video %}
+										<iframe alt="Inventore voluptates velit totam ipsa tenetur" width='400' height='300' src='{{cv.video}}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+									{% else %}
+									
+									<img class="alignright notopmargin fadeIn animated" src="{% static 'images/events/thumbs/1.jpg' %}" alt="Inventore voluptates velit totam ipsa tenetur">
+									
+									{% endif %}
+									<div class="entry-date"><span>{{cv.duracion}}</span></div>
+								</a>
+							</div>
+							<div class="entry-c">
+								<div class="entry-title">
+									<h2><a href='{{cv.link}}'>{{cv.nombre}}</a></h2>
+								</div>
+								<ul class="entry-meta clearfix">
+									<li><span class="label label-warning">{{cv.Idiomas}}</span></li>
+									<li><a><i class="icon-time"></i>{{cv.duracion}}</a></li>
+									<li><a><i class="icon-map-marker2"></i> {{cv.Categoria}}</a></li>
+								</ul>
+								<div class="entry-content">
+									<p style="color:black;">{{cv.informacion}}</p>
+									<a href="{{cv.link}}" class="button button-rounded button-reveal button-large button-border tright"><i class="icon-line-arrow-right"></i><span>Ir al sitio</span></a>
+									<a onclick="window.location.href='{% url 'agregarConvocatoriaCliente' pk=cv.id %}'" class="button button-rounded button-reveal button-large button-blue"><i class="icon-folder-open"></i><span>Guardar</span></a>
+									
+								</div>
+							</div>
+                              </div>
+                              {% empty %} 
+                              <div class="entry clearfix "  data-animate="fadeInLeft">        
+                                    <p style="color: black">No se encontraron resultados. </p>
+                              </div>
+						{% endfor %}
+					</div>
+					<!-- Pagination
+					============================================= -->
+					<ul class="pager nomargin">
+						{% if items.has_previous %}
+						<li class="previous"><a href="?page=1 {% if query %}&q={{query}}{% endif %}">&laquo; first</a></li>
+						<li class="previous"><a href="?page={{ items.previous_page_number }}{% if query %}&q={{query}}{% endif %}">previous</a></li>
+						{% endif %}
+				
+						<span class="current">
+							Página {{ items.number }} de {{ items.paginator.num_pages }}.
+						</span>
+				
+						{% if items.has_next %}
+						<li class="next"><a href="?page={{ items.next_page_number }}{% if query %}&q={{query}}{% endif %}">next</a></li>
+						<li class="next"><a href="?page={{ items.paginator.num_pages }}{% if query %}&q={{query}}{% endif %}">last &raquo;</a></li>
+						{% endif %}
+						<!-- <li class="previous"><a href="#">&larr; Siguiente</a></li>
+						<li class="next"><a href="#">Newer &rarr;</a></li> -->
+					</ul>
+					<!-- .pager end -->
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+
+{% endif %}
+
+<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark" style="background: url('{% static 'images/footer-bg.jpg' %}') repeat fixed; background-size: 100% 100%;">
+
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap clearfix">
+
+					<div class="col_two_third">
+
+						<div class="widget clearfix">
+
+							<img style="height: 50%; width: 50%;" src="{% static 'img/HorizontalPrimario Blanco.png' %}" alt="" class="alignleft" style="margin-top: 8px; padding-right: 18px; border-right: 1px solid #4A4A4A;">
+
+							<p>“Hay que apostarle al desarrollo humano y al talento, si no se habla de talento y educación de calidad, la probabilidad de llegar a altos niveles es baja”.<strong> Salvador Alva</strong>, presidente del Tecnológico de Monterrey.  </p>
+
+							<div class="line" style="margin: 30px 0;"></div>
+						</div>
+
+					</div>
+
+					<div class="col_one_third col_last">
+
+						<div class="widget clearfix">
+							<h4>Información adicional</h4>
+							<p>
+								<span style="color: white;"> Tel&eacute;fono: </span><a> (+52) 777 362 0893</a>
+                        	</p>
+                        	<p>
+								<span style="color: white;"> Correo: </span><a> mdimayuga@itesm.mx</a>
+                        	</p>
+							
+						</div>
+
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						
+						Copyrights &copy; 2019 All Rights Reserved by Smartconnect.
+					</div>
+
+					
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
